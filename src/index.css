@@ -18,6 +18,7 @@ body {
 
 .grid-item{
  border:2px solid blue; 
+ background-color: cadetblue;
  margin:6px;
  padding:5px;
  width: 30%;
@@ -32,4 +33,7 @@ body {
   height: 50%;
   border-radius: 50%;
   
+}
+.adopted{
+  background-color: grey;
 }

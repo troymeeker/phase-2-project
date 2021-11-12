@@ -20,6 +20,7 @@ function ItemList(){
                 return (
                   <Item key={pet.id} pet={pet}/>
                  )
+                //  .filter()
              })}
             </ul>
           

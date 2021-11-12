@@ -4,7 +4,8 @@ import React, { useState } from "react";
 function Item({pet}){
     const {name, image} = pet;
     const [like, setLike] = useState(0);
-    const [donate, setDonate] = useState(0)
+    const [donate, setDonate] = useState(0);
+    const [notAdopted, setNotAdopted] = useState(true); 
 
     function handleDonate(){
         setDonate((donate) => donate + 1)
@@ -18,10 +19,13 @@ function Item({pet}){
     function handleLike(){
         setLike((like) => like + 1);
     }
-
+    function handleToggleAdopt(){
+        setNotAdopted((notAdopted) => !notAdopted)
+        
+    }
 
     return(
-        <div className="grid-item">
+        <div className="grid-item ">
             <img src={image} alt={name} className="grid-img"/>
             <h4> {name} </h4>
             <button onClick={handleLike}>Like</button>
@@ -30,6 +34,11 @@ function Item({pet}){
             <button onClick={handleDonate}>Donate $1</button>
             <button onClick={handleDonateFive}>Donate $5</button>
             <button onClick={handleDonateTen}>Donate $10</button>
+           {notAdopted ? (
+               <button onClick={handleToggleAdopt}>Adopt Me!</button>
+               )  : (
+                   <button className="adopted" onClick={handleToggleAdopt}>I've been Adopted!</button>
+               )}
         </div>
     )
 }

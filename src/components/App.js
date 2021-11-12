@@ -1,7 +1,8 @@
 import React from "react";
-import NavBar from "./NavBar"
-import Home from "./Home";
+import Animals from "./Animals";
 import About from "./About";
+import Users from "./Users";
+import Adopted from "./Adopted"
 import {BrowserRouter as Router,
  Switch, 
  Route, 
@@ -13,32 +14,40 @@ function App() {
   return(
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
+        <nav className="navbar">
+          
+            <h4>
+              <Link to="/">ANIMALS FOR ADOPTION</Link>
+            </h4>
+            
+            <h4>
+              <Link to="/about">ABOUT</Link>
+            </h4>
+            <h4>
+              <Link to="/users">USERS</Link>
+            </h4>
+            <h4>
+              <Link to="/adopted">ADOPTED ANIMALS</Link>
+            </h4>
+          
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
        <Switch>
+          <Route exact path="/">
+            <Animals />
+          </Route> 
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/users">
+            <Users />
+          </Route>
+          <Route path="/adopted">
+            <Adopted />
           </Route>
         </Switch>
       </div> 
-      <NavBar/>
+      
     </Router>
   )
 }

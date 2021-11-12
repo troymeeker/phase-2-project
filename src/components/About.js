@@ -3,7 +3,8 @@ import React from "react";
 function About(){
     return (
     <div>
-        <h2> About  </h2>
+        <p>We are an organization focused on helping shelter animals get support and find 
+             new homes. </p>
     </div>)
 }
 
