@@ -14,7 +14,7 @@ function ItemList(){
 
     //map each item and make an <Item> component for each item and display some info about each item
     return(
-        <div className="grid">
+        <div>
             <ul> 
              { pets.map((pet) => {
                 return (

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ItemList from "./ItemList";
 
 function Home(){
-
+    const [pets, setPets] = useState([]);
     
     return (
     <div>

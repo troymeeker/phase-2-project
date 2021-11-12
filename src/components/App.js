@@ -1,18 +1,22 @@
 import React from "react";
+import Home from "./Home";
 import NavBar from "./NavBar"
 
-import ItemList from "./ItemList";
 
 
 function App() {
-  return (
-    <div className="App">
-      <h2>Will you be an angel for a hopeless animal?</h2>
-       <NavBar />
-      <ItemList />
-      
+  
+
+  return(
+    <div>
+      <h3>Adopt don't shop</h3>
+      <NavBar />
+      <Home />
+    
     </div>
-  );
+  )
+      
+  
 }
 
 export default App;

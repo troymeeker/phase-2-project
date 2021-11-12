@@ -16,22 +16,12 @@ body {
 
 }
 
-.grid{
-width:100vw;
-display: flex;
-justify-content: space-evenly;
-border:3px dotted gray;
-margin: 4px;
-}
-
 .grid-item{
  border:2px solid blue; 
- display: flex;
- flex-wrap: wrap;
- flex-flow: row;
-margin:5px;
- justify-content: space-between;
- width: 40%;
+ margin:6px;
+ width: 30%;
+ height:55%;
+
   
 }
 .grid-img{
