@@ -1,11 +1,13 @@
 import React from "react";
 
+
 function NavBar() {
   return (
-    <nav className="navbar">
-      <a>Home</a>
-      <a>About</a>
-    </nav>
+    <div className="navbar">
+      <h4>HOME</h4>
+      <h4>TEST</h4>
+      <h4>TEST</h4>
+    </div>
    
   )
  

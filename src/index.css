@@ -19,8 +19,11 @@ body {
 .grid-item{
  border:2px solid blue; 
  margin:6px;
+ padding:5px;
  width: 30%;
  height:55%;
+ display: block;
+
 
   
 }
@@ -28,4 +31,5 @@ body {
   width: 50%;
   height: 50%;
   border-radius: 50%;
+  
 }

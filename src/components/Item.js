@@ -31,7 +31,6 @@ function Item({pet}){
             <button onClick={handleDonateFive}>Donate $5</button>
             <button onClick={handleDonateTen}>Donate $10</button>
         </div>
-        
     )
 }
 

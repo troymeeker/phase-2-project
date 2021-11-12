@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import ItemList from "./ItemList";
 
 function Home(){
-    const [pets, setPets] = useState([]);
     
+
     return (
     <div>
-       <ItemList pets={pets}/>
+        <h2>Home</h2>
+       <ItemList />
         
     </div>)
 }
