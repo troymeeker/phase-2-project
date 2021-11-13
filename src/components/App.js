@@ -1,8 +1,8 @@
 import React from "react";
+import Adopted from "./Adopted";
 import Animals from "./Animals";
 import About from "./About";
 import Users from "./Users";
-import Adopted from "./Adopted"
 import {BrowserRouter as Router,
  Switch, 
  Route, 
@@ -17,9 +17,8 @@ function App() {
         <nav className="navbar">
           
             <h4>
-              <Link to="/">ANIMALS FOR ADOPTION</Link>
+              <Link to="/">ANIMALS</Link>
             </h4>
-            
             <h4>
               <Link to="/about">ABOUT</Link>
             </h4>

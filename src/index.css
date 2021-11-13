@@ -1,14 +1,14 @@
 
 body {
   margin: 0px;
-  background-color: rgb(235, 185, 171);
+  background-color: rgb(252, 250, 249);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar{
   height:10vh; 
   width: 100vw;
-  background-color: rgb(103, 212, 176);
+  background-color: rgb(177, 140, 119);
   border: 1px solid black;
   font-family: sans-serif;
   display: flex;
@@ -17,7 +17,8 @@ body {
 }
 
 .grid-item{
- border:2px solid blue; 
+ border:2px solid rgb(3, 3, 12); 
+ border-radius: 3%;
  background-color: cadetblue;
  margin:6px;
  padding:5px;

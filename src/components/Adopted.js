@@ -2,7 +2,10 @@ import React from "react";
 
  function Adopted(){
     return (
-        <div>Adopted animals</div>
+        <div>
+            <h2>My Adopted Animals:</h2>
+            
+        </div>
     )
  }
 
