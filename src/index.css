@@ -4,6 +4,36 @@ body {
   background-color: rgb(252, 250, 249);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.home-page{
+ 
+  text-align: center;
+  background-color: rgb(209, 206, 206);
+  padding: 11px;
+}
+.animals-page{
+  text-align: center; 
+  background-color:rgb(145, 142, 142);  
+  padding: 11px;
+
+}
+.about-page{
+  text-align: center;
+  background-color:rgb(172, 168, 168);  
+  padding: 11px;
+}
+.adopted-page{
+  text-align: center;
+  
+  
+}
+
+.puppy-eyes{
+  width: 50vw;
+  height: 75vh;
+  margin: 20px;
+  border: 2px solid black;
+  border-radius: 5%;
+}
 
 .navbar{
   height:10vh; 
@@ -19,12 +49,14 @@ body {
 .grid-item{
  border:2px solid rgb(3, 3, 12); 
  border-radius: 3%;
- background-color: cadetblue;
- margin:6px;
+ background-color: rgb(139, 208, 209);
+ margin-left:35%;
+ margin-top:5px;
  padding:5px;
  width: 30%;
  height:55%;
- display: block;
+ 
+ text-align: center;
 
 
   
@@ -33,8 +65,10 @@ body {
   width: 50%;
   height: 50%;
   border-radius: 50%;
+  text-align: center;
   
 }
 .adopted{
   background-color: grey;
+  
 }

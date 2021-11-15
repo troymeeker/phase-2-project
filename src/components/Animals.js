@@ -3,7 +3,7 @@ import ItemList from "./ItemList";
 
 function Animals(){
     const [pets, setPets] = useState([]);
-    // const [filter, setFilter] = useState(["All"]);
+    const [filter, setFilter] = useState("All");
 
     useEffect(()=> {
         fetch('http://localhost:3000/pets')
@@ -13,11 +13,10 @@ function Animals(){
 
  function handleChange(e){ 
           console.log(e.target.value);
-     
     }
 
     return (
-    <div >
+    <div className="animals-page">
         <h2>Animals available to support and Adopt</h2>
         
            <select onChange={handleChange}>
@@ -27,6 +26,7 @@ function Animals(){
                <option value="Birds"> Birds</option>
            </select>
       
+      {/* render filtered pets by onChange above */}
        <ItemList pets={pets} />
         
     </div>)

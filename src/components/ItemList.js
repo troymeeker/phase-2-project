@@ -10,6 +10,8 @@ function ItemList({ pets }){
                  )
           )
         return <div>{allPets}</div>;
+
+    
 }
 
 export default ItemList;

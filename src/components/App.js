@@ -1,8 +1,8 @@
 import React from "react";
 import Adopted from "./Adopted";
 import Animals from "./Animals";
+import Home from "./Home";
 import About from "./About";
-import Users from "./Users";
 import {BrowserRouter as Router,
  Switch, 
  Route, 
@@ -17,13 +17,13 @@ function App() {
         <nav className="navbar">
           
             <h4>
-              <Link to="/">ANIMALS</Link>
+              <Link to="/">HOME</Link>
             </h4>
             <h4>
-              <Link to="/about">ABOUT</Link>
+              <Link to="/animals">ANIMALS</Link>
             </h4>
             <h4>
-              <Link to="/users">USERS</Link>
+              <Link to="/about">ABOUT US</Link>
             </h4>
             <h4>
               <Link to="/adopted">ADOPTED ANIMALS</Link>
@@ -33,13 +33,13 @@ function App() {
 
        <Switch>
           <Route exact path="/">
+            <Home />
+          </Route>
+          <Route  path="/animals">
             <Animals />
           </Route> 
           <Route path="/about">
             <About />
-          </Route>
-          <Route path="/users">
-            <Users />
           </Route>
           <Route path="/adopted">
             <Adopted />

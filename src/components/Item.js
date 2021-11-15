@@ -21,7 +21,7 @@ function Item({pet}){
     }
     function handleToggleAdopt(){
         setNotAdopted((notAdopted) => !notAdopted)
-        
+        //Post req, make adopted pet appear in adopted animals component
     }
 
     return(
@@ -33,7 +33,7 @@ function Item({pet}){
             <h4>$ {donate} donated to help {name} find a forever home</h4>
             <button onClick={handleDonate}>Donate $1</button>
             <button onClick={handleDonateFive}>Donate $5</button>
-            <button onClick={handleDonateTen}>Donate $10</button>
+            <button onClick={handleDonateTen}>Donate $10</button><br/>
            {notAdopted ? (
                <button onClick={handleToggleAdopt}>Adopt Me!</button>
                )  : (
