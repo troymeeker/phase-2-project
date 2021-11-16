@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 
 function Item({pet}){
-    const {name, image} = pet;
+    const {name, image } = pet;
     const [like, setLike] = useState(0);
     const [donate, setDonate] = useState(0);
-    const [notAdopted, setNotAdopted] = useState(true); 
+    const [isAdopted, setisAdopted] = useState(false); 
 
     function handleDonate(){
         setDonate((donate) => donate + 1)
@@ -19,11 +19,33 @@ function Item({pet}){
     function handleLike(){
         setLike((like) => like + 1);
     }
-    function handleToggleAdopt(){
-        setNotAdopted((notAdopted) => !notAdopted)
-        //Post req, make adopted pet appear in adopted animals component
-    }
+    function handleAdopt(){
+        setisAdopted((!isAdopted))
+    //    console.log();
+       //patch req to pet to adopted to true
+    //    fetch(`http://localhost:3000/${pet.id}`,{
+    //        method:"PATCH",
+    //        headers:{
+    //            "Content-Type": "application/json"
+    //        }, 
+    //        body: JSON.stringify()
+    //        .then((resp) => resp.json())
+    //        .then((pets) => console.log(pets))
 
+    //    })
+      
+       
+    }
+function handleDelete(){
+          fetch(`http://localhost:3000/pets/${pet.id}`, {
+              method:"DELETE",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+          })
+          .then((resp) => resp.json())
+          .then(() => console.log("removed"))
+      }
     return(
         <div className="grid-item ">
             <img src={image} alt={name} className="grid-img"/>
@@ -34,11 +56,12 @@ function Item({pet}){
             <button onClick={handleDonate}>Donate $1</button>
             <button onClick={handleDonateFive}>Donate $5</button>
             <button onClick={handleDonateTen}>Donate $10</button><br/>
-           {notAdopted ? (
-               <button onClick={handleToggleAdopt}>Adopt Me!</button>
+           {isAdopted ? (
+              <button className="adopted" >I've been Adopted!</button>
                )  : (
-                   <button className="adopted" onClick={handleToggleAdopt}>I've been Adopted!</button>
+                <button onClick={handleAdopt}>Adopt Me!</button>
                )}
+               <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }
