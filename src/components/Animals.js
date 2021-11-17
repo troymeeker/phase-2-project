@@ -2,8 +2,8 @@ import React, {useState , useEffect} from "react";
 import ItemList from "./ItemList";
 
 function Animals(){
-    const [name, setName] = useState("Name")
-    const [image, setImage] = useState("Image URL")
+    const [name, setName] = useState("")
+    const [image, setImage] = useState("")
     const [type, setType] = useState("All")
     const [pets, setPets] = useState([]);
     const [filteredPets, setFilteredPets] = useState([]);
@@ -15,7 +15,8 @@ function Animals(){
             setPets(petsArr) 
             setFilteredPets(petsArr)
     })
-    }, [])
+    }, [pets])
+    
 
  function handleChange(e){ 
           console.log(e.target.value);
@@ -30,11 +31,16 @@ function Animals(){
     }
 
     function handleSubmit(e){
-         e.preventDefault();
+        //  e.preventDefault();
          const data = { 
+             
              name:name,
+             type:type, 
              image:image,
-             type:type,
+             likes:0,
+             donations:0,
+             isAdopted:false,
+             
             };
         fetch('http://localhost:3000/pets', {
             method: "POST", 
@@ -50,12 +56,19 @@ function Animals(){
         setName(e.target.value)
       
     }
-
+   function handleDelete(id){
+       const updatedPets = pets.filter((pet) => pet.id !== id)
+        setPets(updatedPets);
+   }
     function handleImageChange(e){
        setImage(e.target.value)
     }
     function handleTypeChange(e){
        setType(e.target.value)
+    }
+
+    function handleAdopt(){
+        console.log("adopted");
     }
 
     return (
@@ -66,12 +79,12 @@ function Animals(){
            <br/>
 
            <form onSubmit={handleSubmit}>
-               <input  type="text" onChange={handleNameChange} value={name} />
-               <input  type="text" onChange={handleImageChange} value={image} />
+               <input  type="text" onChange={handleNameChange} value={name} placeholder="Name"/>
+               <input  type="text" onChange={handleImageChange} value={image} placeholder="Image URL"/>
                <select onChange={handleTypeChange} value={type}>
-                  <option value="Dog"> Dog</option>
-                  <option value="Cat"> Cat</option>
-                  <option value="Bird"> Bird</option>
+                  <option value="dog"> Dog</option>
+                  <option value="cat"> Cat</option>
+                  <option value="bird"> Bird</option>
                </select>
                <button type="submit" >Submit</button>
            </form>
@@ -87,7 +100,7 @@ function Animals(){
            </select>
       
      
-       <ItemList pets={filteredPets}  />
+       <ItemList pets={filteredPets} onPetDelete={handleDelete} onAdopt={handleAdopt}/>
       
         
     </div>)

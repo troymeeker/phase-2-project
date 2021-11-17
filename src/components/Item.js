@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 
 
-function Item({pet}){
-    const {name, image } = pet;
+function Item({pet, onAdopt, onPetDelete}){
+
+    const {id, name, image } = pet;
     const [like, setLike] = useState(0);
     const [donate, setDonate] = useState(0);
-    const [isAdopted, setisAdopted] = useState(false); 
+    let [isAdopted, setisAdopted] = useState(false); 
+    
 
     function handleDonate(){
         setDonate((donate) => donate + 1)
     }
    function handleDonateFive(){
-    setDonate((donate) => donate + 5)
+         setDonate((donate) => donate + 5)
     }
     function handleDonateTen(){
         setDonate((donate) => donate + 10)
@@ -20,7 +22,9 @@ function Item({pet}){
         setLike((like) => like + 1);
     }
     function handleAdopt(){
-        setisAdopted((!isAdopted))
+        setisAdopted(isAdopted = true)
+        alert("Thank you! You have saved a pet")
+        onAdopt(id)
     //    console.log();
        //patch req to pet to adopted to true
     //    fetch(`http://localhost:3000/${pet.id}`,{
@@ -33,20 +37,18 @@ function Item({pet}){
     //        .then((pets) => console.log(pets))
 
     //    })
-      
        
     }
-function handleDelete(){
-          fetch(`http://localhost:3000/pets/${pet.id}`, {
-              method:"DELETE",
-              headers: {
-                  "Content-Type": "application/json"
-              },
+
+function handleDeleteClick(){
+          fetch(`http://localhost:3000/pets/${id}`, {
+              method: "DELETE"
           })
-          .then((resp) => resp.json())
-          .then(() => console.log("removed"))
+
+          onPetDelete(id)
       }
-    return(
+
+    return( 
         <div className="grid-item ">
             <img src={image} alt={name} className="grid-img"/>
             <h4> {name} </h4>
@@ -61,7 +63,7 @@ function handleDelete(){
                )  : (
                 <button onClick={handleAdopt}>Adopt Me!</button>
                )}
-               <button onClick={handleDelete}>Delete</button>
+               <button onClick={handleDeleteClick}>Delete</button>
         </div>
     )
 }

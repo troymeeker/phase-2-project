@@ -47,8 +47,11 @@
     },
     {
       "name": "Polly",
+      "type": "bird",
       "image": "https://images.squarespace-cdn.com/content/v1/559d822ae4b0b0ab59484d42/1444848971854-TXMYY9OHZIIKY9K54UF2/Adopt-Tika.jpg?format=1000w",
-      "type": "Bird",
+      "likes": 0,
+      "donations": 0,
+      "isAdopted": false,
       "id": 6
     }
   ]
