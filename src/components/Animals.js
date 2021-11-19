@@ -1,5 +1,7 @@
 import React, {useState , useEffect} from "react";
 import ItemList from "./ItemList";
+import Search from "./Search";
+import Filter from "./Filter";
 
 function Animals(){
     const [name, setName] = useState("")
@@ -7,17 +9,17 @@ function Animals(){
     const [type, setType] = useState("All")
     const [pets, setPets] = useState([]);
     const [filteredPets, setFilteredPets] = useState([]);
+    const [search, setSearch] = useState("");
   
-    useEffect(()=> {
+     useEffect(()=> {
         fetch('http://localhost:3000/pets')
         .then((resp) => resp.json())
-        .then((petsArr) => {
-            setPets(petsArr) 
-            setFilteredPets(petsArr)
-    })
-    }, [pets])
+        .then((petArr) => {
+            setPets(petArr) 
+            setFilteredPets(petArr)
+            })
+     },[])
     
-
  function handleChange(e){ 
           console.log(e.target.value);
           //filter pets 
@@ -27,21 +29,19 @@ function Animals(){
           }else{
               setFilteredPets(pets)
           }
-       
     }
 
     function handleSubmit(e){
         //  e.preventDefault();
          const data = { 
-             
              name:name,
              type:type, 
              image:image,
              likes:0,
              donations:0,
              isAdopted:false,
-             
             };
+
         fetch('http://localhost:3000/pets', {
             method: "POST", 
             headers: {
@@ -52,32 +52,36 @@ function Animals(){
         .then((resp) => resp.json())
         .then((pets) => setPets(pets))
     }
+
     function handleNameChange(e){
         setName(e.target.value)
-      
     }
+
    function handleDelete(id){
        const updatedPets = pets.filter((pet) => pet.id !== id)
         setPets(updatedPets);
    }
-    function handleImageChange(e){
-       setImage(e.target.value)
-    }
-    function handleTypeChange(e){
-       setType(e.target.value)
-    }
 
-    function handleAdopt(){
+   function handleImageChange(e){
+       setImage(e.target.value)
+   }
+
+   function handleTypeChange(e){
+       setType(e.target.value)
+   }
+
+   function handleAdopt(){
         console.log("adopted");
-    }
+   }
+
+    const displayedPets = filteredPets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
 
     return (
+
     <div className="animals-page">
         <h2>Animals available to support and Adopt</h2>
-        
         <h3>Add an Animal</h3>
            <br/>
-
            <form onSubmit={handleSubmit}>
                <input  type="text" onChange={handleNameChange} value={name} placeholder="Name"/>
                <input  type="text" onChange={handleImageChange} value={image} placeholder="Image URL"/>
@@ -88,21 +92,14 @@ function Animals(){
                </select>
                <button type="submit" >Submit</button>
            </form>
-
-           <br/>
-
-           <h3>Filter Animals</h3>
-           <select onChange={handleChange}>
-               <option  value="All"> All</option>
-               <option value="Dog"> Dogs</option>
-               <option value="Cat"> Cats</option>
-               <option value="Bird"> Birds</option>
-           </select>
-      
-     
-       <ItemList pets={filteredPets} onPetDelete={handleDelete} onAdopt={handleAdopt}/>
-      
+           
+         
+        <Search search={search} onSearchChange={setSearch} />
         
+        <Filter change={handleChange}/>
+                 
+        <ItemList pets={displayedPets} onPetDelete={handleDelete} onAdopt={handleAdopt}/>
+      
     </div>)
 }
 
