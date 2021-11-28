@@ -7,8 +7,8 @@ function Item({pet, onAdopt, onPetDelete}){
     const [like, setLike] = useState(0);
     const [donate, setDonate] = useState(0);
     let [isAdopted, setisAdopted] = useState(false); 
+    //patch req to change isAdopted to true & fetch true 
     
-
     function handleDonate(){
         setDonate((donate) => donate + 1)
     }
@@ -23,7 +23,8 @@ function Item({pet, onAdopt, onPetDelete}){
     }
     function handleAdopt(){
         setisAdopted(isAdopted = true)
-        alert("Thank you! You have saved a pet")
+        alert('Thank You!')
+        
         onAdopt(id)
     //    console.log();
        //patch req to pet to adopted to true

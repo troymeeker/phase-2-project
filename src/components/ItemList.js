@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 
 
-function ItemList({ pets, onAdopt , onPetDelete}){
+function ItemList({ pets, onAdopt, onPetDelete}){
     //map each item and make an <Item> component for each item and display some info about each item
         
           const allPets = pets.map((pet) => (
@@ -10,8 +10,6 @@ function ItemList({ pets, onAdopt , onPetDelete}){
                  )
           )
         return <div>{allPets}</div>;
-
-    
 }
 
 export default ItemList;

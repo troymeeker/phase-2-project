@@ -36,15 +36,7 @@
       "donations": 0,
       "isAdopted": false
     },
-    {
-      "id": 5,
-      "name": "Moose",
-      "type": "dog",
-      "image": "https://images.squarespace-cdn.com/content/v1/5c5ddb02523958d3ad86db7f/50b861da-7e88-4eb6-b3bb-a3eb2c4e9a33/Image-5.jpeg?format=750w",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false
-    },
+
     {
       "name": "Polly",
       "type": "bird",

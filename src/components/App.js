@@ -3,7 +3,8 @@ import Adopted from "./Adopted";
 import Animals from "./Animals";
 import Home from "./Home";
 import About from "./About";
-import {BrowserRouter as Router,
+import { 
+ BrowserRouter as Router,
  Switch, 
  Route, 
  Link

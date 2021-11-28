@@ -71,7 +71,7 @@ function Animals(){
    }
 
    function handleAdopt(){
-        console.log("adopted");
+       console.log("adopted");
    }
 
     const displayedPets = filteredPets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
