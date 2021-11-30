@@ -24,29 +24,28 @@ function Item({pet, onAdopt, onPetDelete}){
     function handleAdopt(){
         setisAdopted(isAdopted = true)
         alert('Thank You!')
-        
         onAdopt(id)
+
     //    console.log();
        //patch req to pet to adopted to true
-    //    fetch(`http://localhost:3000/${pet.id}`,{
-    //        method:"PATCH",
-    //        headers:{
-    //            "Content-Type": "application/json"
-    //        }, 
-    //        body: JSON.stringify()
-    //        .then((resp) => resp.json())
-    //        .then((pets) => console.log(pets))
-
-    //    })
-       
+       fetch(`http://localhost:3000/pets/{id}`, { 
+            method: "PATCH",  
+            headers: {
+                "Content-type": "application/json"
+            }, 
+             body: JSON.stringify({isAdopted: true})
+    
+       })
+       .then((resp) => resp.json())
+       .then((id) => console.log(id))
     }
 
-function handleDeleteClick(){
+function handleDelete(){
           fetch(`http://localhost:3000/pets/${id}`, {
-              method: "DELETE"
+              method: "DELETE", 
           })
-
-          onPetDelete(id)
+         onPetDelete(id)
+        //   console.log(id);
       }
 
     return( 
@@ -64,7 +63,7 @@ function handleDeleteClick(){
                )  : (
                 <button onClick={handleAdopt}>Adopt Me!</button>
                )}
-               <button onClick={handleDeleteClick}>Delete</button>
+               <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }

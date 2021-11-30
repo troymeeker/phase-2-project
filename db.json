@@ -36,7 +36,6 @@
       "donations": 0,
       "isAdopted": false
     },
-
     {
       "name": "Polly",
       "type": "bird",
@@ -45,6 +44,15 @@
       "donations": 0,
       "isAdopted": false,
       "id": 6
+    },
+    {
+      "name": "Lina",
+      "type": "dog",
+      "image": "https://images.squarespace-cdn.com/content/v1/5c5ddb02523958d3ad86db7f/1633559840696-LN3P2ZAO7U68I2AYE6JU/catalina+2.jpg?format=750w",
+      "likes": 0,
+      "donations": 0,
+      "isAdopted": false,
+      "id": 7
     }
   ]
 }

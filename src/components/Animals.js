@@ -59,7 +59,7 @@ function Animals(){
 
    function handleDelete(id){
        const updatedPets = pets.filter((pet) => pet.id !== id)
-        setPets(updatedPets);
+        setFilteredPets(updatedPets);
    }
 
    function handleImageChange(e){
@@ -70,8 +70,9 @@ function Animals(){
        setType(e.target.value)
    }
 
-   function handleAdopt(){
-       console.log("adopted");
+   function handleAdopt(id){
+     const adoptedPets = pets.filter((pet) => pet.id !== id)
+     setFilteredPets(adoptedPets)
    }
 
     const displayedPets = filteredPets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
@@ -100,7 +101,7 @@ function Animals(){
                  
         <ItemList pets={displayedPets} onPetDelete={handleDelete} onAdopt={handleAdopt}/>
       
-    </div>)
+    </div>) 
 }
 
 export default Animals;
