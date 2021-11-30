@@ -47,7 +47,7 @@ function Animals(){
             headers: {
                "Content-Type": "application/json"
             },
-            body: JSON.stringify(data )
+            body: JSON.stringify(data)
         })
         .then((resp) => resp.json())
         .then((pets) => setPets(pets))
@@ -70,9 +70,11 @@ function Animals(){
        setType(e.target.value)
    }
 
-   function handleAdopt(id){
-     const adoptedPets = pets.filter((pet) => pet.id !== id)
-     setFilteredPets(adoptedPets)
+   function handleAdopt(){
+    //  const adoptedPets = pets.filter((pet) => pet.id !== id)
+    //  setFilteredPets(adoptedPets)
+    pets.isAdopted = true;
+    console.log(pets);
    }
 
     const displayedPets = filteredPets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))

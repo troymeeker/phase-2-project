@@ -21,11 +21,10 @@ function Item({pet, onAdopt, onPetDelete}){
     function handleLike(){
         setLike((like) => like + 1);
     }
-    function handleAdopt(){
-        setisAdopted(isAdopted = true)
-        alert('Thank You!')
+    function handleAdopt(id){
+        setisAdopted((isAdopted) => !isAdopted)
         onAdopt(id)
-
+       
     //    console.log();
        //patch req to pet to adopted to true
        fetch(`http://localhost:3000/pets/{id}`, { 
