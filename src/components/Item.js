@@ -21,7 +21,6 @@ function Item({pet, onAdopt, onPetDelete}){
         setLike((like) => like + 1);
     }
     function handleAdopt(){
-       
         setisAdopted((isAdopted) => !isAdopted)
         onAdopt(pet.id)
     
@@ -36,7 +35,7 @@ function Item({pet, onAdopt, onPetDelete}){
        })
        .then((resp) => resp.json())
        .then((id) => setisAdopted(id))
-       
+
     }
 
 function handleDelete(){

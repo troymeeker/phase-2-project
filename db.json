@@ -53,6 +53,42 @@
       "donations": 0,
       "isAdopted": false,
       "id": 7
+    },
+    {
+      "name": "cat",
+      "type": "cat",
+      "image": "",
+      "likes": 0,
+      "donations": 0,
+      "isAdopted": false,
+      "id": 8
+    },
+    {
+      "name": "bird",
+      "type": "bird",
+      "image": "",
+      "likes": 0,
+      "donations": 0,
+      "isAdopted": false,
+      "id": 9
+    },
+    {
+      "name": "cat2",
+      "type": "cat",
+      "image": "",
+      "likes": 0,
+      "donations": 0,
+      "isAdopted": false,
+      "id": 10
+    },
+    {
+      "name": "dog",
+      "type": "All",
+      "image": "",
+      "likes": 0,
+      "donations": 0,
+      "isAdopted": false,
+      "id": 11
     }
   ]
 }

@@ -54,7 +54,11 @@ function Animals(){
             body: JSON.stringify(data)
         })
         .then((resp) => resp.json())
-        .then((data) => setPets(data))
+        .then((data) => {
+           debugger
+             setPets(...pets, data)
+        }
+        )
     }
 
     function handleNameChange(e){
