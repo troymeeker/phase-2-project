@@ -1,10 +1,7 @@
 import React from "react";
 
  function Search({search, onSearchChange}){
-    // function handleSearch(e){
-    //     pets.filter((pet) => pet.name.toLowerCase().includes(e.target.value.toLowerCase()))
-    //WHY IS HANDLESEARCH NOT NEEDED HERE?
-    //  }
+    
     
     return(
      <div>

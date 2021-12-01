@@ -6,8 +6,7 @@ function Item({pet, onAdopt, onPetDelete}){
     const {id, name, image } = pet;
     const [like, setLike] = useState(0);
     const [donate, setDonate] = useState(0);
-    let [isAdopted, setisAdopted] = useState(false); 
-    //patch req to change isAdopted to true & fetch true 
+    const [isAdopted, setisAdopted] = useState(false); 
     
     function handleDonate(){
         setDonate((donate) => donate + 1)
@@ -21,13 +20,13 @@ function Item({pet, onAdopt, onPetDelete}){
     function handleLike(){
         setLike((like) => like + 1);
     }
-    function handleAdopt(id){
-        setisAdopted((isAdopted) => !isAdopted)
-        onAdopt(id)
+    function handleAdopt(){
        
-    //    console.log();
+        setisAdopted((isAdopted) => !isAdopted)
+        onAdopt(pet.id)
+    
        //patch req to pet to adopted to true
-       fetch(`http://localhost:3000/pets/{id}`, { 
+       fetch(`http://localhost:3000/pets/${pet.id}`, { 
             method: "PATCH",  
             headers: {
                 "Content-type": "application/json"
@@ -36,7 +35,8 @@ function Item({pet, onAdopt, onPetDelete}){
     
        })
        .then((resp) => resp.json())
-       .then((id) => console.log(id))
+       .then((id) => setisAdopted(id))
+       
     }
 
 function handleDelete(){
@@ -44,7 +44,7 @@ function handleDelete(){
               method: "DELETE", 
           })
          onPetDelete(id)
-        //   console.log(id);
+          console.log(id);
       }
 
     return( 
@@ -60,7 +60,7 @@ function handleDelete(){
            {isAdopted ? (
               <button className="adopted" >I've been Adopted!</button>
                )  : (
-                <button onClick={handleAdopt}>Adopt Me!</button>
+                <button onClick={()=>handleAdopt(id)}>Adopt Me!</button>
                )}
                <button onClick={handleDelete}>Delete</button>
         </div>

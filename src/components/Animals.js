@@ -2,6 +2,8 @@ import React, {useState , useEffect} from "react";
 import ItemList from "./ItemList";
 import Search from "./Search";
 import Filter from "./Filter";
+import Adopted from "./Adopted";
+
 
 function Animals(){
     const [name, setName] = useState("")
@@ -21,7 +23,7 @@ function Animals(){
      },[])
     
  function handleChange(e){ 
-          console.log(e.target.value);
+        //   console.log(e.target.value);
           //filter pets 
           if(e.target.value !== "All"){
                 const filtered = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
@@ -32,14 +34,16 @@ function Animals(){
     }
 
     function handleSubmit(e){
-        //  e.preventDefault();
-         const data = { 
-             name:name,
-             type:type, 
-             image:image,
-             likes:0,
-             donations:0,
-             isAdopted:false,
+          e.preventDefault();
+          //not working properly now ^^
+
+          const data = { 
+             name: name,
+             type: type, 
+             image: image,
+             likes: 0,
+             donations: 0,
+             isAdopted: false,
             };
 
         fetch('http://localhost:3000/pets', {
@@ -50,7 +54,7 @@ function Animals(){
             body: JSON.stringify(data)
         })
         .then((resp) => resp.json())
-        .then((pets) => setPets(pets))
+        .then((data) => setPets(data))
     }
 
     function handleNameChange(e){
@@ -70,11 +74,11 @@ function Animals(){
        setType(e.target.value)
    }
 
-   function handleAdopt(){
-    //  const adoptedPets = pets.filter((pet) => pet.id !== id)
-    //  setFilteredPets(adoptedPets)
-    pets.isAdopted = true;
-    console.log(pets);
+   function handlePetAdopt(id){
+     const adoptedPets = pets.filter((pet) => pet.id !== id)
+     setFilteredPets(adoptedPets)
+    //  pets.isAdopted = true;
+     console.log(pets);
    }
 
     const displayedPets = filteredPets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
@@ -93,7 +97,7 @@ function Animals(){
                   <option value="cat"> Cat</option>
                   <option value="bird"> Bird</option>
                </select>
-               <button type="submit" >Submit</button>
+               <button>Submit</button>
            </form>
            
          
@@ -101,8 +105,11 @@ function Animals(){
         
         <Filter change={handleChange}/>
                  
-        <ItemList pets={displayedPets} onPetDelete={handleDelete} onAdopt={handleAdopt}/>
-      
+        <ItemList pets={displayedPets} onPetDelete={handleDelete} onAdopt={handlePetAdopt}/>
+
+        {/* <Adopted pets={pets}/> */}
+
+        
     </div>) 
 }
 
