@@ -55,8 +55,12 @@ function Animals(){
         })
         .then((resp) => resp.json())
         .then((data) => {
-           debugger
-             setPets(...pets, data)
+            
+             setPets(pets.push(data)) 
+            // debugger
+          
+             setFilteredPets(filteredPets.push(data))
+            
         }
         )
     }
@@ -82,9 +86,9 @@ function Animals(){
      const adoptedPets = pets.filter((pet) => pet.id !== id)
      setFilteredPets(adoptedPets)
     //  pets.isAdopted = true;
-     console.log(pets);
+    //  console.log(pets);
    }
-
+    console.log(filteredPets);
     const displayedPets = filteredPets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
 
     return (
