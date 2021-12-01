@@ -43,7 +43,7 @@ function handleDelete(){
               method: "DELETE", 
           })
          onPetDelete(id)
-          console.log(id);
+        //   console.log(id);
       }
 
     return( 
@@ -61,7 +61,7 @@ function handleDelete(){
                )  : (
                 <button onClick={()=>handleAdopt(id)}>Adopt Me!</button>
                )}
-               <button onClick={handleDelete}>Delete</button>
+               <button onClick={()=> handleDelete(id)}>Delete</button>
         </div>
     )
 }

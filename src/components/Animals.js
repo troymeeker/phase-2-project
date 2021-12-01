@@ -2,10 +2,11 @@ import React, {useState , useEffect} from "react";
 import ItemList from "./ItemList";
 import Search from "./Search";
 import Filter from "./Filter";
-import Adopted from "./Adopted";
+// import Adopted from "./Adopted";
 
 
 function Animals(){
+
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [type, setType] = useState("All")
@@ -21,6 +22,12 @@ function Animals(){
             setFilteredPets(petArr)
             })
      },[])
+
+     //
+     const displayedPets = filteredPets.filter((pet) => (
+         pet.name.toLowerCase().includes(search.toLowerCase())
+     )
+    )
     
  function handleChange(e){ 
         //   console.log(e.target.value);
@@ -55,13 +62,9 @@ function Animals(){
         })
         .then((resp) => resp.json())
         .then((data) => {
-            
-             setPets(pets.push(data)) 
-            // debugger
-          
+             setPets(pets.push(data))         
              setFilteredPets(filteredPets.push(data))
-            
-        }
+                    }
         )
     }
 
@@ -86,10 +89,12 @@ function Animals(){
      const adoptedPets = pets.filter((pet) => pet.id !== id)
      setFilteredPets(adoptedPets)
     //  pets.isAdopted = true;
-    //  console.log(pets);
+   
    }
-    console.log(filteredPets);
-    const displayedPets = filteredPets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
+     //console.log(filteredPets);
+        // console.log(pets);
+
+    
 
     return (
 
@@ -115,7 +120,8 @@ function Animals(){
                  
         <ItemList pets={displayedPets} onPetDelete={handleDelete} onAdopt={handlePetAdopt}/>
 
-        {/* <Adopted pets={pets}/> */}
+        {/* <Adopted pets={pets}/> 
+        not sure where to render adopted component*/}
 
         
     </div>) 

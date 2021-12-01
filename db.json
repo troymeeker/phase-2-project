@@ -16,7 +16,7 @@
       "image": "https://images.squarespace-cdn.com/content/v1/5c5ddb02523958d3ad86db7f/1634160043662-IN5KST1D3CGSXYQI8539/IMG_3939.jpg?format=1000w",
       "likes": 0,
       "donations": 0,
-      "isAdopted": false
+      "isAdopted": true
     },
     {
       "id": 3,
@@ -53,114 +53,6 @@
       "donations": 0,
       "isAdopted": false,
       "id": 7
-    },
-    {
-      "name": "cat",
-      "type": "cat",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 8
-    },
-    {
-      "name": "bird",
-      "type": "bird",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 9
-    },
-    {
-      "name": "cat2",
-      "type": "cat",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 10
-    },
-    {
-      "name": "dog",
-      "type": "All",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 11
-    },
-    {
-      "name": "testdog",
-      "type": "All",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 12
-    },
-    {
-      "name": "testcat",
-      "type": "cat",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 13
-    },
-    {
-      "name": "dogtest",
-      "type": "All",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 14
-    },
-    {
-      "name": "testdebug",
-      "type": "All",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 15
-    },
-    {
-      "name": "pet14",
-      "type": "cat",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 16
-    },
-    {
-      "name": "pet15",
-      "type": "All",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 17
-    },
-    {
-      "name": "cat16",
-      "type": "cat",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 18
-    },
-    {
-      "name": "pet17",
-      "type": "cat",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 19
     }
   ]
 }

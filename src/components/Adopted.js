@@ -1,5 +1,5 @@
 import React from "react";
-import AdoptedPet from "./AdoptedPet";
+// import AdoptedPet from "./AdoptedPet";
 
 
  function Adopted(){
