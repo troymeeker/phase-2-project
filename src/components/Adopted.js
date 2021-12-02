@@ -1,16 +1,15 @@
 import React from "react";
-// import AdoptedPet from "./AdoptedPet";
+import AdoptedPet from "./AdoptedPet";
 
 
- function Adopted(){
+ function Adopted({pets}){
+
 
     
-
  
      return(
       <div>
-          <h4>Render Adopted Pets Here</h4>
-        {/* <AdoptedPet/> */}
+          <AdoptedPet />
      </div>
      )
  }

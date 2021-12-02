@@ -23,7 +23,7 @@ function Item({pet, onAdopt, onPetDelete}){
     function handleAdopt(){
         setisAdopted((isAdopted) => !isAdopted)
         onAdopt(pet.id)
-    
+
        //patch req to pet to adopted to true
        fetch(`http://localhost:3000/pets/${pet.id}`, { 
             method: "PATCH",  

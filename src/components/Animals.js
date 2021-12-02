@@ -2,7 +2,7 @@ import React, {useState , useEffect} from "react";
 import ItemList from "./ItemList";
 import Search from "./Search";
 import Filter from "./Filter";
-// import Adopted from "./Adopted";
+import Adopted from "./Adopted";
 
 
 function Animals(){
@@ -11,39 +11,30 @@ function Animals(){
     const [image, setImage] = useState("")
     const [type, setType] = useState("All")
     const [pets, setPets] = useState([]);
-    const [filteredPets, setFilteredPets] = useState([]);
     const [search, setSearch] = useState("");
   
-     useEffect(()=> {
+     useEffect(() => {
         fetch('http://localhost:3000/pets')
         .then((resp) => resp.json())
         .then((petArr) => {
             setPets(petArr) 
-            setFilteredPets(petArr)
+           
             })
      },[])
 
-     //
-     const displayedPets = filteredPets.filter((pet) => (
-         pet.name.toLowerCase().includes(search.toLowerCase())
-     )
-    )
-    
  function handleChange(e){ 
         //   console.log(e.target.value);
           //filter pets 
           if(e.target.value !== "All"){
                 const filtered = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
-                setFilteredPets(filtered) 
+                setPets(filtered) 
           }else{
-              setFilteredPets(pets)
+            setPets(pets)
           }
     }
 
     function handleSubmit(e){
-          e.preventDefault();
-          //not working properly now ^^
-
+         e.preventDefault();
           const data = { 
              name: name,
              type: type, 
@@ -62,10 +53,9 @@ function Animals(){
         })
         .then((resp) => resp.json())
         .then((data) => {
-             setPets(pets.push(data))         
-             setFilteredPets(filteredPets.push(data))
-                    }
-        )
+            // debugger
+             setPets([...pets, data])         
+            })
     }
 
     function handleNameChange(e){
@@ -74,7 +64,7 @@ function Animals(){
 
    function handleDelete(id){
        const updatedPets = pets.filter((pet) => pet.id !== id)
-        setFilteredPets(updatedPets);
+       setPets(updatedPets);
    }
 
    function handleImageChange(e){
@@ -85,16 +75,16 @@ function Animals(){
        setType(e.target.value)
    }
 
-   function handlePetAdopt(id){
-     const adoptedPets = pets.filter((pet) => pet.id !== id)
-     setFilteredPets(adoptedPets)
-    //  pets.isAdopted = true;
-   
+   function handlePetAdopt(){
+   //map over pets ?
+    //debugger
+    //  setPets(adoptedPets)
+     console.log(pets);
    }
-     //console.log(filteredPets);
-        // console.log(pets);
-
-    
+ 
+     const displayedPets = pets.filter((pet) => 
+         pet.name?.toLowerCase().includes(search.toLowerCase())
+        )
 
     return (
 
@@ -113,17 +103,15 @@ function Animals(){
                <button>Submit</button>
            </form>
            
-         
         <Search search={search} onSearchChange={setSearch} />
         
         <Filter change={handleChange}/>
                  
         <ItemList pets={displayedPets} onPetDelete={handleDelete} onAdopt={handlePetAdopt}/>
 
-        {/* <Adopted pets={pets}/> 
-        not sure where to render adopted component*/}
+        <Adopted pets={displayedPets}/>
+        {/* make Adopted as a child of animals */}
 
-        
     </div>) 
 }
 
