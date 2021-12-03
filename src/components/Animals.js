@@ -1,15 +1,15 @@
 import React, {useState } from "react";
 import ItemList from "./ItemList";
 import Search from "./Search";
-import Filter from "./Filter";
-// import Adopted from "./Adopted";
+ import Filter from "./Filter";
 
 
-function Animals({pets, onAdopt, onPetDelete, onSubmit, onImageChange, onNameChange , onTypeChange, onPetChange}){
 
+function Animals({pets, onAdopt, onPetDelete, onSubmit, onImageChange, onNameChange, onTypeChange, onPetChange}){
   
-    const [search, setSearch] = useState("");
-
+   const [search, setSearch] = useState("");
+  
+   
  
    const displayedPets = pets.filter((pet) => 
        pet.name?.toLowerCase().includes(search.toLowerCase())
@@ -18,6 +18,8 @@ function Animals({pets, onAdopt, onPetDelete, onSubmit, onImageChange, onNameCha
     // const adoptedPets = pets.filter((pet) => 
     //     pet.isAdopted
     // )
+
+    
     
         return (
 
@@ -28,21 +30,19 @@ function Animals({pets, onAdopt, onPetDelete, onSubmit, onImageChange, onNameCha
            <form onSubmit={onSubmit}>
                <input  type="text" onChange={onNameChange} value={pets.name} placeholder="Name"/>
                <input  type="text" onChange={onImageChange} value={pets.image} placeholder="Image URL"/>
-               <select onChange={onTypeChange} value={pets.type}>
-                  <option value="dog"> Dog</option>
-                  <option value="cat"> Cat</option>
-                  <option value="bird"> Bird</option>
+               <select onChange={onTypeChange} >
+                  <option value="Dog"> Dog</option>
+                  <option value="Cat"> Cat</option>
+                  <option value="Bird"> Bird</option>
                </select>
                <button>Submit</button>
            </form>
            
         <Search search={search} onSearchChange={setSearch} />
-        
-        <Filter change={onPetChange}/>
+
+        <Filter onPetChange={onPetChange} />
                  
         <ItemList pets={displayedPets} onPetDelete={onPetDelete} onAdopt={onAdopt}/>
-
-       
 
     </div>) 
 }

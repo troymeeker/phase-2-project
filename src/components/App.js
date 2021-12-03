@@ -16,36 +16,38 @@ function App() {
   const [name, setName] = useState("")
   const [image, setImage] = useState("")
   const [type, setType] = useState("All")
+
   
-  useEffect(() => {
+  
+   useEffect(() => {
     fetch('http://localhost:3000/pets')
     .then((resp) => resp.json())
     .then((petArr) => {
         setPets(petArr) 
        
         })
- },[])
+  },[])
 
- function handlePetAdopt(){
-  //map over pets ?
-   //debugger
-   //  setPets(adoptedPets)
+  function handlePetAdopt(){
     setPets(pets);
    //  console.log(pets);
   }
 
   function handlePetChange(e){ 
-    //   console.log(e.target.value);
+      console.log(e.target.value);
+      
       //filter pets 
       if(e.target.value !== "All"){
-        const filtered = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
-        setPets(filtered) 
+        const filteredPets = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
+        setPets(filteredPets) 
+      
       }else{
         setPets(pets)
       }
-}
+      
+  }
 
-function handleSubmit(e){
+  function handleSubmit(e){
      e.preventDefault();
       const data = { 
          name: name,
@@ -65,38 +67,35 @@ function handleSubmit(e){
     })
     .then((resp) => resp.json())
     .then((data) => {
-        // debugger
-         setPets([...pets, data])         
+        setPets([...pets, data])         
         })
-}
+  }
 
-function handleNameChange(e){
+  function handleNameChange(e){
     setName(e.target.value)
-}
+  }
 
-function handleDelete(id){
-   const updatedPets = pets.filter((pet) => pet.id !== id)
-   setPets(updatedPets);
-}
+  function handleDelete(id){
+    const updatedPets = pets.filter((pet) => pet.id !== id)
+    setPets(updatedPets);
+  } 
 
-function handleImageChange(e){
-   setImage(e.target.value)
-}
+   function handleImageChange(e){
+     setImage(e.target.value)
+   }
 
-function handleTypeChange(e){
-   setType(e.target.value)
-}
-
- const adoptedPets = pets.filter((pet) => 
-        pet.isAdopted
- );
-
+  function handleTypeChange(e){
+    setType(e.target.value)
+  }
   
+   const adoptedPets = pets.filter((pet) => 
+     pet.isAdopted
+   );
+
   return(
     <Router>
       <div>
         <nav className="navbar">
-          
             <h4>
               <Link to="/">HOME</Link>
             </h4>
@@ -106,33 +105,33 @@ function handleTypeChange(e){
             <h4>
               <Link to="/about">ABOUT US</Link>
             </h4>
-            <h4>
-              <Link to="/adopted">ADOPTED ANIMALS</Link>
+            <h4 >
+              <Link to="/adopted" >ADOPTED ANIMALS</Link>
             </h4>
           
         </nav>
 
-       <Switch>
+       <Switch >
           <Route exact path="/">
             <Home />
           </Route>
           <Route  path="/animals">
             <Animals
-              pets={pets} 
-              onAdopt={handlePetAdopt}
-              onPetDelete={handleDelete}
-              onSubmit={handleSubmit}
+              pets = {pets} 
+              onAdopt = {handlePetAdopt}
+              onPetDelete = {handleDelete}
+              onSubmit = {handleSubmit}
               onNameChange = {handleNameChange}
-              onImageChange={handleImageChange} 
-              onTypeChange={handleTypeChange}
-              onPetChange={handlePetChange}
+              onImageChange = {handleImageChange} 
+              onTypeChange = {handleTypeChange}
+              onPetChange = {handlePetChange}
               />
           </Route> 
           <Route path="/about">
             <About />
           </Route>
           <Route path="/adopted" >
-            <Adopted pets={adoptedPets} setPets={setPets} />
+            <Adopted adoptedPets={adoptedPets} />
           </Route>
         </Switch>
       </div> 

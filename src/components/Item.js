@@ -21,21 +21,19 @@ function Item({pet, onAdopt, onPetDelete}){
         setLike((like) => like + 1);
     }
     function handleAdopt(){
-        setisAdopted((isAdopted) => !isAdopted)
-        onAdopt(pet.id)
-      
-
-       //patch req to pet to adopted to true
+        // setisAdopted((isAdopted) => !isAdopted)
+       onAdopt(pet.id)       
        fetch(`http://localhost:3000/pets/${pet.id}`, { 
             method: "PATCH",  
             headers: {
                 "Content-type": "application/json"
             }, 
              body: JSON.stringify({isAdopted: true})
-    
-       })
+           })
        .then((resp) => resp.json())
        .then((id) => setisAdopted(id))
+        
+       
 
 
     }
@@ -61,9 +59,9 @@ function handleDelete(){
             { isAdopted ? (
               <button className="adopted" >I've been Adopted!</button>
                )  : (
-                <button onClick={()=>handleAdopt(id)}>Adopt Me!</button>
+                <button onClick={handleAdopt}>Adopt Me!</button>
                )}
-               <button onClick={()=> handleDelete(id)}>Delete</button>
+               <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }

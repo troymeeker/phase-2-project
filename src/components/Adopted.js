@@ -2,10 +2,10 @@ import React from "react";
 import AdoptedPet from "./AdoptedPet";
 
 
- function Adopted({pets}){
+ function Adopted({adoptedPets}){
 
-    const petCards = pets.map((pet) => 
-        <AdoptedPet pet={pet} key={pet.id}/>
+    const petCards = adoptedPets.map((pet) => 
+        <AdoptedPet pet={pet} key={pet.id} />
     )
     
  
