@@ -56,11 +56,16 @@ body {
  width: 30%;
  height:55%;
  
- text-align: center;
-
+ 
 
   
 }
+.grid-header{
+  
+text-align: center;
+
+}
+
 .grid-img{
   width: 50%;
   height: 50%;

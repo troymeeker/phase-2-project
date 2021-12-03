@@ -7,7 +7,7 @@
       "image": "https://images.squarespace-cdn.com/content/v1/5c5ddb02523958d3ad86db7f/1636403800667-R4ZDBDZQ6IU1KBFOCQJ5/joy+4.jpg?format=750w",
       "likes": 0,
       "donations": 0,
-      "isAdopted": true
+      "isAdopted": false
     },
     {
       "id": 2,
@@ -60,7 +60,7 @@
       "image": "https://www.thespruce.com/thmb/b45NsEHSrZ7kcZqQTR9USncofp8=/1138x1138/smart/filters:no_upscale()/bird-bill-parts-387362-hero-94dfe8a28cf74e83a36945b850bd6d4c.jpg",
       "likes": 0,
       "donations": 0,
-      "isAdopted": true,
+      "isAdopted": false,
       "id": 8
     }
   ]

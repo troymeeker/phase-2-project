@@ -1,40 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
-function AdoptedPet(){
-    // const {image, name} = pet;
+function AdoptedPet({pet}){
+     const {image, name} = pet;
 
-// useEffect(() => {
-//             fetch('http://localhost:3000/pets', {
-//                  method:"GET", 
-//                  headers: {
-//                      "Content-Type": "application/json"
-//                     },
-//                     body: JSON.stringify({data})
-//         }
-           
-//             )
-//             .then((resp) => resp.json())
-//             .then((data) => {
-//                 console.log(data);
-               
-//                 })
-//          },[])
+     const [adoptedPetCard, setAdoptedPetCard] = useState([])
 
-//     function handleReturnPet(){
-//         alert("Are you sure you would like to return this pet?")
-          
-        
-//         }
-        
-   {/* run another patch to set isAdopted back to false & remove from adopted pets */}
 
+    function handleReturnPet(){
+         alert("Are you sure you would like to return this pet?")
+        // run another patch to set isAdopted back to false & remove from adopted pets 
+        fetch(`http://localhost:3000/pets/${pet.id}`, { 
+            method: "PATCH",  
+            headers: {
+                "Content-type": "application/json"
+            }, 
+             body: JSON.stringify({isAdopted: false})
+           })
+       .then((resp) => resp.json())
+       .then((adoptedPetCard) => setAdoptedPetCard(adoptedPetCard))
+       
+       //need to remove pet without refresh here
+
+    }                
 
     return (
-        <div> 
+        <div className="grid-item "> 
+          <h2>{name}</h2>
+            <img src={image} alt={name} className="grid-img"/>
             
-            {/* <img src={image} alt={name}/>
-            <h2>name</h2>
-            <button onClick={handleReturnPet}> Return this Pet</button> */}
+            <button onClick={handleReturnPet}> UnAdopt this Pet</button> 
         </div>
     )
 }

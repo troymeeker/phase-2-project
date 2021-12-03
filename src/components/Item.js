@@ -23,6 +23,7 @@ function Item({pet, onAdopt, onPetDelete}){
     function handleAdopt(){
         setisAdopted((isAdopted) => !isAdopted)
         onAdopt(pet.id)
+      
 
        //patch req to pet to adopted to true
        fetch(`http://localhost:3000/pets/${pet.id}`, { 
@@ -35,6 +36,7 @@ function Item({pet, onAdopt, onPetDelete}){
        })
        .then((resp) => resp.json())
        .then((id) => setisAdopted(id))
+
 
     }
 
@@ -56,7 +58,7 @@ function handleDelete(){
             <button onClick={handleDonate}>Donate $1</button>
             <button onClick={handleDonateFive}>Donate $5</button>
             <button onClick={handleDonateTen}>Donate $10</button><br/>
-           {isAdopted ? (
+            { isAdopted ? (
               <button className="adopted" >I've been Adopted!</button>
                )  : (
                 <button onClick={()=>handleAdopt(id)}>Adopt Me!</button>
