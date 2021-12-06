@@ -1,11 +1,11 @@
 import React from "react";
 
-function Filter({  onPetChange}){
+function Filter({handlePetChange}){
 
     return (
       <div>
         <h3>Filter Animals</h3>
-        <select onChange={onPetChange} >
+        <select onChange={handlePetChange} >
             <option  value="All"> All</option>
             <option value="Dog"> Dogs</option>
             <option value="Cat"> Cats</option>

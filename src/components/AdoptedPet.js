@@ -17,8 +17,7 @@ function AdoptedPet({pet}){
              body: JSON.stringify({isAdopted: false})
            })
         .then((resp) => resp.json())
-        .then((adoptedPets) => 
-            setAdoptedPets(adoptedPets),
+        .then((adoptedPets) => setAdoptedPets(adoptedPets)
             // console.log(adoptedPets)
         )
        

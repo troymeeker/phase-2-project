@@ -53,15 +53,6 @@
       "donations": 0,
       "isAdopted": false,
       "id": 7
-    },
-    {
-      "name": "Baldy",
-      "type": "bird",
-      "image": "https://www.thespruce.com/thmb/b45NsEHSrZ7kcZqQTR9USncofp8=/1138x1138/smart/filters:no_upscale()/bird-bill-parts-387362-hero-94dfe8a28cf74e83a36945b850bd6d4c.jpg",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 8
     }
   ]
 }

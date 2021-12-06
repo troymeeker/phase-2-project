@@ -4,15 +4,15 @@ import AdoptedPet from "./AdoptedPet";
 
  function Adopted({adoptedPets}){
 
-    const petCards = adoptedPets.map((pet) => 
-        <AdoptedPet pet={pet} key={pet.id} />
-    )
+    // const petCards = adoptedPets.map((pet) => 
+    //     <AdoptedPet pet={pet} key={pet.id} />
+    // )
     
  
      return(
       <div>
           <h1 className="grid-header ">Adopted Pets:</h1>
-          {petCards}
+          {/* {petCards} */}
      </div>
      )
  }

@@ -1,0 +1,50 @@
+import React, {useState} from "react"
+
+function Form({handleSubmit}){
+    const [name, setName] = useState("")
+    const [image, setImage] = useState("")
+    const [type, setType] = useState("All")  
+
+    function handleImageChange(e){
+        setImage(e.target.value)
+      }
+   
+    function handleTypeChange(e){
+       setType(e.target.value)
+    }
+    function handleNameChange(e){
+       setName(e.target.value)
+    }
+
+    function handleOnSubmit(e){
+       e.preventDefault();
+        const data = {
+          name: name,
+          type: type,
+          image, image,
+          likes: 0,
+          donations: 0,
+          isAdopted: false,
+        };
+          handleSubmit(data)
+          setName('')
+          setImage('')
+
+      }
+
+
+    return(
+        <form onSubmit={handleOnSubmit}>
+               <input  type="text" onChange={handleNameChange} value={name} placeholder="Name"/>
+               <input  type="text" onChange={handleImageChange} value={image} placeholder="Image URL"/>
+               <select onChange={handleTypeChange} >
+                  <option value="Dog"> Dog</option>
+                  <option value="Cat"> Cat</option>
+                  <option value="Bird"> Bird</option>
+               </select>
+               <button>Submit</button>
+           </form>
+    )
+}
+
+export default Form;
