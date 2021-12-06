@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from "react";
 import Adopted from "./Adopted";
 import Animals from "./Animals";
@@ -17,8 +18,6 @@ function App() {
   const [image, setImage] = useState("")
   const [type, setType] = useState("All")
 
-  
-  
    useEffect(() => {
     fetch('http://localhost:3000/pets')
     .then((resp) => resp.json())
@@ -30,7 +29,7 @@ function App() {
 
   function handlePetAdopt(){
     setPets(pets);
-   //  console.log(pets);
+   
   }
 
   function handlePetChange(e){ 
@@ -38,13 +37,13 @@ function App() {
       
       //filter pets 
       if(e.target.value !== "All"){
-        const filteredPets = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
-        setPets(filteredPets) 
+        const petsDisplayed = pets.map((pet) => pet.type === e.target.value.toLowerCase())
+        setPets(petsDisplayed)
       
       }else{
         setPets(pets)
       }
-      
+
   }
 
   function handleSubmit(e){
@@ -68,7 +67,7 @@ function App() {
     .then((resp) => resp.json())
     .then((data) => {
         setPets([...pets, data])         
-        })
+    })
   }
 
   function handleNameChange(e){

@@ -19,7 +19,7 @@ function AdoptedPet({pet}){
         .then((resp) => resp.json())
         .then((adoptedPets) => 
             setAdoptedPets(adoptedPets),
-            console.log(adoptedPets)
+            // console.log(adoptedPets)
         )
        
        //need to remove pet without refresh here
