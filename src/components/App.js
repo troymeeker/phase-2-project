@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Adopted from "./Adopted";
 import Animals from "./Animals";
 import Home from "./Home";
@@ -14,7 +14,69 @@ import {
 
 function App() {
 
- 
+  const [pets,setPets] = useState([]);
+    
+
+  useEffect(() => {
+    fetch('http://localhost:3000/pets')
+    .then((resp) => resp.json())
+    .then((petArr) => {
+        setPets(petArr) 
+       
+        })
+  },[setPets])
+
+
+  function handlePetChange(e){ 
+    console.log(e.target.value);
+    
+    //filter pets 
+    if(e.target.value !== "All"){
+      const petsToDisplay= pets.filter((pet) => pet.type === e.target.value.toLowerCase());
+   
+      setPets(petsToDisplay);
+    
+    }else{
+      setPets(pets);
+    }
+   }    
+   
+   function handlePetAdopt(){
+    //     const adoptedPets = pets.filter((pet) => 
+    //     pet.isAdopted
+    //   ); 
+    //   setPets(adoptedPets);
+        setPets(pets)
+      console.log(pets);
+     }
+
+
+   
+    function handleSubmit(data){ 
+      
+      fetch('http://localhost:3000/pets', {
+          method: "POST", 
+          headers: {
+             "Content-Type": "application/json"
+          },
+          body: JSON.stringify({data})
+      })
+      .then((resp) => resp.json())
+      .then((data) => {
+          setPets([...pets, data])         
+      })
+    } 
+
+    function handleDelete(id){
+      const updatedPets = pets.filter((pet) => pet.id !== id)
+      setPets(updatedPets);
+    } 
+
+  const adoptedPets = pets.filter((pet) => 
+      pet.isAdopted
+    );
+
+
   return(
     <Router>
       <div>
@@ -39,14 +101,20 @@ function App() {
             <Home />
           </Route>
           <Route  path="/animals">
-            <Animals />
+            <Animals 
+            pets={pets} 
+            onAdopt={handlePetAdopt}
+            onPetDelete = {handleDelete}
+            handleSubmit={handleSubmit}
+            onPetChange = {handlePetChange}
+            />
           </Route> 
           <Route path="/about">
             <About />
           </Route>
           <Route path="/adopted" >
             <Adopted 
-            // adoptedPets={adoptedPets} 
+             adoptedPets={adoptedPets} 
             />
           </Route>
         </Switch>

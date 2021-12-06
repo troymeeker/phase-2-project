@@ -1,6 +1,10 @@
 import React from "react";
 
-function Filter({handlePetChange}){
+function Filter({onPetChange}){
+
+  function handlePetChange(e){
+     onPetChange(e.target.value);
+  }
 
     return (
       <div>

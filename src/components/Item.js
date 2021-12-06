@@ -33,10 +33,7 @@ function Item({pet, onAdopt, onPetDelete}){
        .then((resp) => resp.json())
        .then((id) => setisAdopted(id))
         
-       
-
-
-    }
+       }
 
 function handleDelete(){
           fetch(`http://localhost:3000/pets/${id}`, {
