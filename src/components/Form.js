@@ -20,6 +20,7 @@ function Form({handleSubmit}){
         setImage('')
 
       }
+
       function handleImageChange(e){
         setImage(e.target.value)
       }

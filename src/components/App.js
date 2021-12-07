@@ -40,7 +40,7 @@ function App() {
       setPets(pets);
     }
    }    
-   
+
    function handlePetAdopt(){
     //     const adoptedPets = pets.filter((pet) => 
     //     pet.isAdopted
@@ -50,8 +50,6 @@ function App() {
       console.log(pets);
      }
 
-
-   
     function handleSubmit(data){ 
       
       fetch('http://localhost:3000/pets', {
@@ -59,7 +57,7 @@ function App() {
           headers: {
              "Content-Type": "application/json"
           },
-          body: JSON.stringify({data})
+          body: JSON.stringify(data)
       })
       .then((resp) => resp.json())
       .then((data) => {
@@ -107,6 +105,7 @@ function App() {
             onPetDelete = {handleDelete}
             handleSubmit={handleSubmit}
             onPetChange = {handlePetChange}
+            // setPets={setPets}
             />
           </Route> 
           <Route path="/about">

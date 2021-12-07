@@ -97,6 +97,28 @@
         "isAdopted": false
       },
       "id": 11
+    },
+    {
+      "data": {
+        "name": "testCat",
+        "type": "Cat",
+        "image": "",
+        "likes": 0,
+        "donations": 0,
+        "isAdopted": false
+      },
+      "id": 12
+    },
+    {
+      "data": {
+        "name": "testBird",
+        "type": "Bird",
+        "image": "",
+        "likes": 0,
+        "donations": 0,
+        "isAdopted": false
+      },
+      "id": 13
     }
   ]
 }
