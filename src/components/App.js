@@ -13,6 +13,7 @@ import {
 
 
 function App() {
+  document.title = "Save-A-Pet";
 
   const [pets,setPets] = useState([]);
     

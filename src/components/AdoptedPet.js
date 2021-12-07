@@ -17,9 +17,12 @@ function AdoptedPet({pet}){
              body: JSON.stringify({isAdopted: false})
            })
         .then((resp) => resp.json())
-        .then((adoptedPets) => setAdoptedPets(adoptedPets)
-            // console.log(adoptedPets)
+        .then((adoptedPets) => 
+            //  setAdoptedPets(adoptedPets),
+             console.log(adoptedPets)
+            // rerender adopted pets to empty array
         )
+        
        
        //need to remove pet without refresh here
 

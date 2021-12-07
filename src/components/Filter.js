@@ -5,6 +5,7 @@ function Filter({onPetChange}){
   function handlePetChange(e){
     return onPetChange(e);
     //works on 1st change after refresh but none others
+    //(e) => handlePetChange(e)<-- how many places is this needed?
   }
 
     return (
