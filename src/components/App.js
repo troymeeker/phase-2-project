@@ -16,7 +16,6 @@ function App() {
 
   const [pets,setPets] = useState([]);
     
-
   useEffect(() => {
     fetch('http://localhost:3000/pets')
     .then((resp) => resp.json())
@@ -28,15 +27,14 @@ function App() {
 
 
   function handlePetChange(e){ 
-    console.log(e.target.value);
+     //console.log(e.target.value);
+  
     
-    //filter pets 
     if(e.target.value !== "All"){
-      const petsToDisplay= pets.filter((pet) => pet.type === e.target.value.toLowerCase());
-   
+      const petsToDisplay = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
       setPets(petsToDisplay);
     
-    }else{
+    } else {
       setPets(pets);
     }
    }    
@@ -50,18 +48,18 @@ function App() {
       console.log(pets);
      }
 
-    function handleSubmit(data){ 
+    function handleSubmit(pet){ 
       
       fetch('http://localhost:3000/pets', {
           method: "POST", 
           headers: {
              "Content-Type": "application/json"
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(pet)
       })
       .then((resp) => resp.json())
-      .then((data) => {
-          setPets([...pets, data])         
+      .then((pet) => {
+          setPets([...pets, pet])         
       })
     } 
 
@@ -104,8 +102,8 @@ function App() {
             onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
             handleSubmit={handleSubmit}
-            onPetChange = {handlePetChange}
-            // setPets={setPets}
+            handlePetChange = {handlePetChange}
+           
             />
           </Route> 
           <Route path="/about">

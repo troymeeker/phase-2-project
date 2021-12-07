@@ -1,3 +1,4 @@
+
 import React, {useState} from "react"
 
 function Form({handleSubmit}){
@@ -7,7 +8,7 @@ function Form({handleSubmit}){
 
     function handleOnSubmit(e){
       e.preventDefault();
-      const data = {
+      const pet = {
         name: name,
         type: type, 
         image: image,
@@ -15,7 +16,7 @@ function Form({handleSubmit}){
         donations: 0,
         isAdopted: false,
       };
-        handleSubmit(data)
+        handleSubmit(pet)
         setName('')
         setImage('')
 

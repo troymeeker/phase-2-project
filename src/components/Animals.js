@@ -6,7 +6,7 @@ import Form from "./Form";
 
 
 
-function Animals({pets, onAdopt, onPetDelete, handleSubmit, onPetChange }){
+function Animals({pets, onAdopt, onPetDelete, handleSubmit, handlePetChange }){
    
   
    const [search, setSearch] = useState("");
@@ -27,7 +27,7 @@ function Animals({pets, onAdopt, onPetDelete, handleSubmit, onPetChange }){
 
         <Search  search={search} allPets={pets} onSearchChange={setSearch} />
 
-        <Filter onPetChange={onPetChange} />           
+        <Filter onPetChange={handlePetChange} />           
 
         <ItemList pets={displayedPets} onPetDelete={onPetDelete} onAdopt={onAdopt}/>
 
