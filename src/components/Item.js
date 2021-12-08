@@ -31,7 +31,7 @@ function Item({pet, onAdopt, onPetDelete}){
              body: JSON.stringify({isAdopted: true})
            })
        .then((resp) => resp.json())
-       .then((id) => setisAdopted(id))
+       .then((data) => setisAdopted(data))
         
        }
 

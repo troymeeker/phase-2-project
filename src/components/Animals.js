@@ -37,7 +37,6 @@ function Animals({pets, onAdopt, onPetDelete, handleSubmit }){
       setFilteredPets(petsToFilter);
    
    } else {
-    //  setPets(pets);
     setFilteredPets(pets)
    }
   }    

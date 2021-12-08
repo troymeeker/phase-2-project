@@ -18,26 +18,26 @@ function App() {
   const [pets, setPets] = useState([]);
   const [adoptedPets, setAdoptedPets] = useState([]);
 
-
   useEffect(() => {
     fetch('http://localhost:3000/pets')
     .then((resp) => resp.json())
     .then((petArr) => {
         setPets(petArr) 
-        let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
+         let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
         setAdoptedPets(adoptedPetArr)
         
         })
-  },[setPets])
+  },[])
 
    
    function handlePetAdopt(){
-    //     const adoptedPets = pets.filter((pet) => 
-    //     pet.isAdopted
-    //   ); 
-    //   setPets(adoptedPets);
-        setPets(pets)
-      console.log(pets);
+        const filteredAdopted = pets.filter((pet) => 
+        pet.isAdopted
+      ); 
+      setPets(filteredAdopted);
+      // setPets(pets)
+      // console.log(pets);
+      console.log(filteredAdopted);
      }
 
     function handleSubmit(pet){ 
@@ -90,7 +90,6 @@ function App() {
             onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
             handleSubmit={handleSubmit}
-            // handlePetChange = {handlePetChange}
            
             />
           </Route> 
@@ -101,6 +100,7 @@ function App() {
             <Adopted 
              adoptedPets={adoptedPets} 
              setAdoptedPets={setAdoptedPets}
+           
             />
           </Route>
         </Switch>
