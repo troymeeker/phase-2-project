@@ -2,13 +2,12 @@ import React from "react";
 
 function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
      const {image, name} = pet;
-    //  const [adoptedPets, setAdoptedPets] = useState([])
 
 
     function handleReturnPet(){
          alert("Are you sure you would like to return this pet?")
-        // run another patch to set isAdopted back to false & remove from adopted pets 
-        // onReturn(pet.id)
+       
+      
         fetch(`http://localhost:3000/pets/${pet.id}`, { 
             method: "PATCH",  
             headers: {
@@ -21,10 +20,9 @@ function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
              setAdoptedPets(adoptedPets),
              console.log(adoptedPets)
                      
-            // rerender adopted pets to empty array
+            // adoptedPets is empty here 
         )    
        //need to remove pet without refresh here
-         
     }                
 
     return (

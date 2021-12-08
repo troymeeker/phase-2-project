@@ -6,7 +6,7 @@ import Form from "./Form";
 
 
 
-function Animals({pets, onAdopt, onPetDelete, handleSubmit }){
+function Animals({pets, onAdopt, onPetDelete, handleSubmit, setAdoptedPets, adoptedPets}){
    
   
 //    const [search, setSearch] = useState("");
@@ -19,27 +19,27 @@ function Animals({pets, onAdopt, onPetDelete, handleSubmit }){
         fetch("http://localhost:3000/pets")
         .then((resp) => resp.json())
         .then((petArr) => {
-            // setPets(petArr)
+            
             setFilteredPets(petArr)
         })
     }
    },[pets])
  
-//    const displayedPets = pets.filter((pet) => 
-//        pet.name?.toLowerCase().includes(search.toLowerCase())
-//    )
+   //    const displayedPets = pets.filter((pet) => 
+   //        pet.name?.toLowerCase().includes(search.toLowerCase())
+   //    )
 
    function handlePetChange(e){ 
    
-      if(e.target.value !== "All"){
+    if(e.target.value !== "All"){
      const petsToFilter = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
      
       setFilteredPets(petsToFilter);
    
-   } else {
-    setFilteredPets(pets)
-   }
-  }    
+     }  else {
+      setFilteredPets(pets)
+      }
+    }    
 
   return (
 
@@ -55,7 +55,13 @@ function Animals({pets, onAdopt, onPetDelete, handleSubmit }){
 
         <Filter onPetChange={handlePetChange} />           
 
-        <ItemList pets={filteredPets} onPetDelete={onPetDelete} onAdopt={onAdopt}/>
+        <ItemList
+          adoptedPets={adoptedPets}
+          setAdoptedPets={setAdoptedPets}
+          pets={filteredPets}
+          onPetDelete={onPetDelete} 
+          onAdopt={onAdopt}
+          />
       
 
     </div>) 

@@ -24,7 +24,7 @@ How:
 Walkthrough: 
     Here is a brief walkthrough video of how the app works: 
 
-Resources:
+Resources & inspiration:
     streetdoghero.org    
 
 Thanks for visiting! 

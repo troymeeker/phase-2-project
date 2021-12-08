@@ -11,7 +11,6 @@ import {
   Link
 } from "react-router-dom";
 
-
 function App() {
   document.title = "Save-A-Pet";
 
@@ -25,18 +24,17 @@ function App() {
         setPets(petArr) 
          let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
         setAdoptedPets(adoptedPetArr)
-        
         })
   },[])
 
    
    function handlePetAdopt(){
         const filteredAdopted = pets.filter((pet) => 
-        pet.isAdopted
-      ); 
-      //setPets(filteredAdopted);
-       setPets(pets)
-      // console.log(pets);
+             pet.isAdopted
+          ); 
+      setAdoptedPets(filteredAdopted);
+       // setPets(pets)
+      
       console.log(filteredAdopted);
      }
 
@@ -89,6 +87,8 @@ function App() {
             onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
             handleSubmit={handleSubmit}
+            adoptedPets={adoptedPets} 
+            setAdoptedPets={setAdoptedPets}
             />
           </Route> 
           <Route path="/about">

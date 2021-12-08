@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function Item({pet, onAdopt, onPetDelete}){
+function Item({pet, onAdopt, onPetDelete, setAdoptedPets, adoptedPets}){
 
     const {id, name, image } = pet;
     const [like, setLike] = useState(0);
@@ -11,8 +11,8 @@ function Item({pet, onAdopt, onPetDelete}){
     function handleDonate(){
         setDonate((donate) => donate + 1)
     }
-   function handleDonateFive(){
-         setDonate((donate) => donate + 5)
+    function handleDonateFive(){
+        setDonate((donate) => donate + 5)
     }
     function handleDonateTen(){
         setDonate((donate) => donate + 10)
@@ -21,9 +21,9 @@ function Item({pet, onAdopt, onPetDelete}){
         setLike((like) => like + 1);
     }
     function handleAdopt(){
-        // setisAdopted((isAdopted) => !isAdopted)
-       onAdopt(pet.id)       
-       fetch(`http://localhost:3000/pets/${pet.id}`, { 
+        
+       onAdopt(id);       
+       fetch(`http://localhost:3000/pets/${id}`, { 
             method: "PATCH",  
             headers: {
                 "Content-type": "application/json"
@@ -31,8 +31,12 @@ function Item({pet, onAdopt, onPetDelete}){
              body: JSON.stringify({isAdopted: true})
            })
        .then((resp) => resp.json())
-       .then((data) => setisAdopted(data))
-        
+       .then((data) => 
+           setisAdopted(data),
+           
+        )
+        setAdoptedPets(adoptedPets)
+        console.log(adoptedPets);
        }
 
 function handleDelete(){
@@ -40,7 +44,7 @@ function handleDelete(){
               method: "DELETE", 
           })
          onPetDelete(id)
-        //   console.log(id);
+       
       }
 
     return( 
