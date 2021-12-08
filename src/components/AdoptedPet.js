@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
      const {image, name} = pet;
 
+     useEffect(() => {
+        fetch('http://localhost:3000/pets')
+        .then((resp) => resp.json())
+        .then((data) => {
+            // setAdoptedPets(data)
+             let adoptedPetArr = data.filter((pet) => pet.isAdopted === true)
+            setAdoptedPets(adoptedPetArr)
+           
+            })
+     }, [])
 
     function handleReturnPet(){
-         alert("Are you sure you would like to return this pet?")
+        alert("Are you sure you would like to return this pet?")
        
       
         fetch(`http://localhost:3000/pets/${pet.id}`, { 

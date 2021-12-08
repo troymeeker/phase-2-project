@@ -17,18 +17,25 @@ function App() {
   const [pets, setPets] = useState([]);
   const [adoptedPets, setAdoptedPets] = useState([]);
 
-  useEffect(() => {
+  useEffect( () => {
+    fetchPets();
+        
+  },[ ])
+
+  function fetchPets(){
     fetch('http://localhost:3000/pets')
     .then((resp) => resp.json())
     .then((petArr) => {
         setPets(petArr) 
          let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
         setAdoptedPets(adoptedPetArr)
+       
         })
-  },[])
+  }
 
    
-   function handlePetAdopt(){
+  
+     function handlePetAdopt(){
         const filteredAdopted = pets.filter((pet) => 
              pet.isAdopted
           ); 
@@ -37,6 +44,7 @@ function App() {
       
       console.log(filteredAdopted);
      }
+     
 
     function handleSubmit(pet){ 
       fetch('http://localhost:3000/pets', {

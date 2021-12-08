@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function Item({pet, onAdopt, onPetDelete, setAdoptedPets, adoptedPets}){
+function Item({pet, onAdopt, onPetDelete}){
 
     const {id, name, image } = pet;
     const [like, setLike] = useState(0);
@@ -32,11 +32,11 @@ function Item({pet, onAdopt, onPetDelete, setAdoptedPets, adoptedPets}){
            })
        .then((resp) => resp.json())
        .then((data) => 
-           setisAdopted(data),
+           setisAdopted(data)
            
         )
-        setAdoptedPets(adoptedPets)
-        console.log(adoptedPets);
+        // setAdoptedPets(adoptedPets)
+        // console.log(adoptedPets);
        }
 
 function handleDelete(){

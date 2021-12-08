@@ -61,7 +61,7 @@ function Animals({pets, onAdopt, onPetDelete, handleSubmit, setAdoptedPets, adop
           pets={filteredPets}
           onPetDelete={onPetDelete} 
           onAdopt={onAdopt}
-          />
+         />
       
 
     </div>) 

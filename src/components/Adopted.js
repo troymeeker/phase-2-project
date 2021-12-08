@@ -3,8 +3,9 @@ import AdoptedPet from "./AdoptedPet";
 
 
  function Adopted({adoptedPets, setAdoptedPets}){
-     
+
 //adoptedPets is empty here
+
 
      const petCards = adoptedPets.map((pet) => 
         <AdoptedPet 
