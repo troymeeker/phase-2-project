@@ -34,14 +34,13 @@ function App() {
         const filteredAdopted = pets.filter((pet) => 
         pet.isAdopted
       ); 
-      setPets(filteredAdopted);
-      // setPets(pets)
+      //setPets(filteredAdopted);
+       setPets(pets)
       // console.log(pets);
       console.log(filteredAdopted);
      }
 
     function handleSubmit(pet){ 
-      
       fetch('http://localhost:3000/pets', {
           method: "POST", 
           headers: {
@@ -90,7 +89,6 @@ function App() {
             onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
             handleSubmit={handleSubmit}
-           
             />
           </Route> 
           <Route path="/about">

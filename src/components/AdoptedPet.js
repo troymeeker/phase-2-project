@@ -18,8 +18,8 @@ function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
            })
         .then((resp) => resp.json())
         .then((adoptedPets) => 
-             setAdoptedPets(adoptedPets)
-            //  console.log(adoptedPets)
+             setAdoptedPets(adoptedPets),
+             console.log(adoptedPets)
                      
             // rerender adopted pets to empty array
         )    
