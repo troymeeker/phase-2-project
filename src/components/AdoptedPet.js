@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
-function AdoptedPet({pet}){
+function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
      const {image, name} = pet;
-     const [adoptedPets, setAdoptedPets] = useState([])
+    //  const [adoptedPets, setAdoptedPets] = useState([])
 
 
     function handleReturnPet(){
@@ -18,12 +18,11 @@ function AdoptedPet({pet}){
            })
         .then((resp) => resp.json())
         .then((adoptedPets) => 
-            //  setAdoptedPets(adoptedPets),
+             setAdoptedPets(adoptedPets),
              console.log(adoptedPets)
+                     
             // rerender adopted pets to empty array
-        )
-        
-       
+        )    
        //need to remove pet without refresh here
 
     }                

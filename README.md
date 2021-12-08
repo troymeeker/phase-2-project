@@ -5,6 +5,7 @@ Introduction:
         The pets are rendered from the db.json file but pets can also be added by adding the name, image, and type of animal they are into the form and submitting the form. 
         In addition to adding pets, the pets can be filtered by searching any letter that is in their name, as well as filtering by animal type. 
         For Each individual pet that is rendered on the Animals page, they have state variables for likes, donations, and can also be adopted (which will render that pet to the Adopted page), as well as deleted ( which deletes the pet permanently from the db.json file). 
+        In the Adopted page, the option is given to 'un- adopt' a pet, which when selected will delete that pet from that page. 
     
 Why:
     I was motivated to design my project as a pet adoption site, as it resembles a non profit organization that I support called StreetDogHero. Street Dog Hero is a organization based in Bend, Oregon (Where I live) that saves neglected and mistreated animals from Mexico, Korea, and all over the world and helps them find homes where they can live better lives. It is where I adopted my current dog, and is an organization that I believe in and support when I am able. 

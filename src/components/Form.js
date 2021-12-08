@@ -27,7 +27,7 @@ function Form({handleSubmit}){
       }
    
     function handleTypeChange(e){
-       setType(e.target.value)
+       setType(e.target.value.toLowerCase())
     }
     function handleNameChange(e){
        setName(e.target.value)

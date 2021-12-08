@@ -15,31 +15,22 @@ import {
 function App() {
   document.title = "Save-A-Pet";
 
-  const [pets,setPets] = useState([]);
-    
+  const [pets, setPets] = useState([]);
+  const [adoptedPets, setAdoptedPets] = useState([]);
+
+
   useEffect(() => {
     fetch('http://localhost:3000/pets')
     .then((resp) => resp.json())
     .then((petArr) => {
         setPets(petArr) 
-       
+        let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
+        setAdoptedPets(adoptedPetArr)
+        
         })
   },[setPets])
 
-
-  function handlePetChange(e){ 
-     //console.log(e.target.value);
-  
-    
-    if(e.target.value !== "All"){
-      const petsToDisplay = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
-      setPets(petsToDisplay);
-    
-    } else {
-      setPets(pets);
-    }
-   }    
-
+   
    function handlePetAdopt(){
     //     const adoptedPets = pets.filter((pet) => 
     //     pet.isAdopted
@@ -69,11 +60,7 @@ function App() {
       setPets(updatedPets);
     } 
 
-  const adoptedPets = pets.filter((pet) => 
-      pet.isAdopted
-    );
-
-
+    
   return(
     <Router>
       <div>
@@ -103,7 +90,7 @@ function App() {
             onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
             handleSubmit={handleSubmit}
-            handlePetChange = {handlePetChange}
+            // handlePetChange = {handlePetChange}
            
             />
           </Route> 
@@ -113,6 +100,7 @@ function App() {
           <Route path="/adopted" >
             <Adopted 
              adoptedPets={adoptedPets} 
+             setAdoptedPets={setAdoptedPets}
             />
           </Route>
         </Switch>
