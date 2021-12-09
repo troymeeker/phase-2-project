@@ -27,13 +27,13 @@ function App() {
     .then((resp) => resp.json())
     .then((petArr) => {
        setPets(petArr)
-        //  let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
+         let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
         // setPets(adoptedPetArr)
       //  console.log(pets);
         })
   }
   let filteredAdoptedPets = pets.filter((pet) => 
-       pet.isAdopted
+       pet.isAdopted === true
     ); 
     //pets.filter is not a function
    
@@ -56,6 +56,19 @@ function App() {
       const updatedPets = pets.filter((pet) => pet.id !== id)
       setPets(updatedPets);
     } 
+
+    function handlePetReturn(adoptedPet){
+      console.log(pets);
+      //create new arr of pets & swap old pet w updated
+      const adoptedPets = pets.map((petObj) => {
+          if(petObj.id === adoptedPet.id){
+              return adoptedPet
+          }else{
+              return petObj
+          }
+      })
+      setPets(adoptedPets);
+    }
 
     
   return(
@@ -85,7 +98,6 @@ function App() {
             <Animals 
             pets={pets} 
             setPets={setPets}
-            // onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
             handleSubmit = {handleSubmit}
             
@@ -96,8 +108,10 @@ function App() {
           </Route>
           <Route path="/adopted" >
             <Adopted 
-             filteredAdoptedPets = {filteredAdoptedPets} 
+             pets = {filteredAdoptedPets} 
              setPets = {setPets}
+             onPetReturn = {handlePetReturn}
+
            
            
             />

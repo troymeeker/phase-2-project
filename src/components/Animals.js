@@ -69,9 +69,9 @@ function Animals({pets, onPetDelete, handleSubmit, setPets}){
         <ItemList
           onPetAdopt= {handlePetAdopt}
           pets={filteredPets}
-        //   adoptedpets={pets}
+        
           onPetDelete={onPetDelete} 
-        //   onAdopt={onAdopt}
+        
          />
       
 

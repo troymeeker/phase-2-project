@@ -2,16 +2,18 @@ import React from "react";
 import AdoptedPet from "./AdoptedPet";
 
 
- function Adopted({filteredAdoptedPets, setPets}){
+ function Adopted({pets, setPets, adoptedPet, onPetReturn}){
 
     // adoptedPets.map is not a function
 
 
-     const petCards = filteredAdoptedPets.map((pet) => 
+     const petCards = pets.map((pet) => 
         <AdoptedPet 
              pet={pet} 
              key={pet.id}  
              setPets={setPets}
+             adoptedPet={adoptedPet}
+             onPetReturn={onPetReturn}
             
         />
      )

@@ -1,6 +1,6 @@
 import React from "react";
 
-function AdoptedPet({pet, setPets}){
+function AdoptedPet({pet, setPets, adoptedPet , onPetReturn}){
      const {image, name} = pet;
 
 
@@ -16,8 +16,8 @@ function AdoptedPet({pet, setPets}){
              body: JSON.stringify({isAdopted: false})
            })
         .then((resp) => resp.json())
-        .then((data) => 
-             setPets(data)
+        .then((adoptedPet) => 
+         onPetReturn(adoptedPet)
             //  console.log(adoptedPets)
                      
             // adoptedPets is empty here 
