@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
+function AdoptedPet({pet, setPets}){
      const {image, name} = pet;
 
-     useEffect(() => {
-        fetch('http://localhost:3000/pets')
-        .then((resp) => resp.json())
-        .then((data) => {
-            // setAdoptedPets(data)
-             let adoptedPetArr = data.filter((pet) => pet.isAdopted === true)
-            setAdoptedPets(adoptedPetArr)
-           
-            })
-     }, [])
 
     function handleReturnPet(){
         alert("Are you sure you would like to return this pet?")
@@ -26,9 +16,9 @@ function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
              body: JSON.stringify({isAdopted: false})
            })
         .then((resp) => resp.json())
-        .then((adoptedPets) => 
-             setAdoptedPets(adoptedPets),
-             console.log(adoptedPets)
+        .then((data) => 
+             setPets(data)
+            //  console.log(adoptedPets)
                      
             // adoptedPets is empty here 
         )    
@@ -37,9 +27,12 @@ function AdoptedPet({pet, setAdoptedPets, adoptedPets}){
 
     return (
         <div className="grid-item"> 
-          <h2>{name}</h2>
-          <img src={image} alt={name} className="grid-img"/>
-          <button onClick={handleReturnPet}>UnAdopt this Pet</button> 
+            <ul>
+                <h2>{name}</h2>
+                <img src={image} alt={name} className="grid-img"/>
+                <button onClick={handleReturnPet}>UnAdopt this Pet</button> 
+          
+            </ul>  
         </div>
     )
 }

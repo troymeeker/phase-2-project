@@ -11,39 +11,44 @@ import {
   Link
 } from "react-router-dom";
 
+
 function App() {
   document.title = "Save-A-Pet";
 
   const [pets, setPets] = useState([]);
-  const [adoptedPets, setAdoptedPets] = useState([]);
+  // const [adoptedPets, setAdoptedPets] = useState([]);
+  //adoptedPets is not needed, use pets and make sure to make changes to pets array
 
-  useEffect( () => {
+  useEffect(() => {
     fetchPets();
         
-  },[ ])
+  },[])
+
+  
 
   function fetchPets(){
     fetch('http://localhost:3000/pets')
     .then((resp) => resp.json())
     .then((petArr) => {
-        setPets(petArr) 
-         let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
-        setAdoptedPets(adoptedPetArr)
-       
+       setPets(petArr)
+        //  let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
+        // setPets(adoptedPetArr)
+      //  console.log(pets);
         })
   }
-
+  const filteredAdoptedPets = pets.filter((pet) => 
+       pet.isAdopted
+    ); 
    
   
-     function handlePetAdopt(){
-        const filteredAdopted = pets.filter((pet) => 
-             pet.isAdopted
-          ); 
-      setAdoptedPets(filteredAdopted);
-       // setPets(pets)
+    //  function handlePetAdopt(){
+    //     // const filteredAdopted = pets.filter((pet) => 
+    //     //      pet.isAdopted
+    //     //   ); 
+    //    setPets(filteredAdoptedPets);
       
-      console.log(filteredAdopted);
-     }
+    //   console.log(filteredAdoptedPets);
+    //  }
      
 
     function handleSubmit(pet){ 
@@ -92,11 +97,12 @@ function App() {
           <Route  path="/animals">
             <Animals 
             pets={pets} 
-            onAdopt={handlePetAdopt}
+            setPets={setPets}
+            // onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
-            handleSubmit={handleSubmit}
-            adoptedPets={adoptedPets} 
-            setAdoptedPets={setAdoptedPets}
+            handleSubmit = {handleSubmit}
+            // adoptedPets={adoptedPets} 
+            // setAdoptedPets={setAdoptedPets}
             />
           </Route> 
           <Route path="/about">
@@ -104,8 +110,9 @@ function App() {
           </Route>
           <Route path="/adopted" >
             <Adopted 
-             adoptedPets={adoptedPets} 
-             setAdoptedPets={setAdoptedPets}
+             filteredAdoptedPets = {filteredAdoptedPets} 
+             setPets = {setPets}
+            //  setAdoptedPets={setAdoptedPets}
            
             />
           </Route>

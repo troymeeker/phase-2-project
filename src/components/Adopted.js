@@ -2,24 +2,24 @@ import React from "react";
 import AdoptedPet from "./AdoptedPet";
 
 
- function Adopted({adoptedPets, setAdoptedPets}){
+ function Adopted({filteredAdoptedPets, setPets}){
 
-//adoptedPets is empty here
+    // adoptedPets.map is not a function
 
 
-     const petCards = adoptedPets.map((pet) => 
+     const petCards = filteredAdoptedPets.map((pet) => 
         <AdoptedPet 
              pet={pet} 
              key={pet.id}  
-             setAdoptedPets={setAdoptedPets}
-             adoptedPets={adoptedPets}
+             setPets={setPets}
+            
         />
      )
     
  
      return(
       <div>
-          <h1 className="grid-header ">Adopted Pets:</h1>
+          <h2 className="grid-header ">Adopted Pets:</h2>
           {petCards}
      </div>
      )

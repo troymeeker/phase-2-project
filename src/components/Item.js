@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function Item({pet, onAdopt, onPetDelete}){
+function Item({pet, onPetDelete }){
 
     const {id, name, image } = pet;
     const [like, setLike] = useState(0);
@@ -12,7 +12,7 @@ function Item({pet, onAdopt, onPetDelete}){
         setDonate((donate) => donate + 1)
     }
     function handleDonateFive(){
-        setDonate((donate) => donate + 5)
+         setDonate((donate) => donate + 5)
     }
     function handleDonateTen(){
         setDonate((donate) => donate + 10)
@@ -22,7 +22,7 @@ function Item({pet, onAdopt, onPetDelete}){
     }
     function handleAdopt(){
         
-       onAdopt(id);       
+      
        fetch(`http://localhost:3000/pets/${id}`, { 
             method: "PATCH",  
             headers: {
@@ -35,8 +35,7 @@ function Item({pet, onAdopt, onPetDelete}){
            setisAdopted(data)
            
         )
-        // setAdoptedPets(adoptedPets)
-        // console.log(adoptedPets);
+       
        }
 
 function handleDelete(){

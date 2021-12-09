@@ -5,12 +5,11 @@ import Filter from "./Filter";
 import Form from "./Form";
 
 
-
-function Animals({pets, onAdopt, onPetDelete, handleSubmit, setAdoptedPets, adoptedPets}){
+function Animals({pets, onPetDelete, handleSubmit, setPets}){
    
   
 //    const [search, setSearch] = useState("");
-   const [filteredPets, setFilteredPets] = useState([]);
+    const [filteredPets, setFilteredPets] = useState([]);
   
    useEffect(() => {
     if(pets !== undefined && pets.length !== 0){
@@ -34,10 +33,10 @@ function Animals({pets, onAdopt, onPetDelete, handleSubmit, setAdoptedPets, adop
     if(e.target.value !== "All"){
      const petsToFilter = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
      
-      setFilteredPets(petsToFilter);
+     setFilteredPets(petsToFilter);
    
      }  else {
-      setFilteredPets(pets)
+        setFilteredPets(pets)
       }
     }    
 
@@ -53,14 +52,14 @@ function Animals({pets, onAdopt, onPetDelete, handleSubmit, setAdoptedPets, adop
 
         {/* <Search  search={search} onSearchChange={setSearch} /> */}
 
-        <Filter onPetChange={handlePetChange} />           
+        <Filter onPetChange={handlePetChange}/>           
 
         <ItemList
-          adoptedPets={adoptedPets}
-          setAdoptedPets={setAdoptedPets}
+       
           pets={filteredPets}
+        //   adoptedpets={pets}
           onPetDelete={onPetDelete} 
-          onAdopt={onAdopt}
+        //   onAdopt={onAdopt}
          />
       
 
