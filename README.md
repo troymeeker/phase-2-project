@@ -22,7 +22,7 @@ How:
     - Information Flow
   
 Walkthrough: 
-    Here is a brief walkthrough video of how the app works: 
+    Here is a brief walkthrough video of how the app works: https://www.youtube.com/watch?v=s8BXvIQ5B28
 
 Resources & inspiration:
     streetdoghero.org    
