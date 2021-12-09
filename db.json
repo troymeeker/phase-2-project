@@ -53,15 +53,6 @@
       "donations": 0,
       "isAdopted": false,
       "id": 7
-    },
-    {
-      "name": "testBird",
-      "type": "bird",
-      "image": "",
-      "likes": 0,
-      "donations": 0,
-      "isAdopted": false,
-      "id": 8
     }
   ]
 }

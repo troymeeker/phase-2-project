@@ -16,15 +16,11 @@ function App() {
   document.title = "Save-A-Pet";
 
   const [pets, setPets] = useState([]);
-  // const [adoptedPets, setAdoptedPets] = useState([]);
-  //adoptedPets is not needed, use pets and make sure to make changes to pets array
 
   useEffect(() => {
     fetchPets();
         
   },[])
-
-  
 
   function fetchPets(){
     fetch('http://localhost:3000/pets')
@@ -36,20 +32,11 @@ function App() {
       //  console.log(pets);
         })
   }
-  const filteredAdoptedPets = pets.filter((pet) => 
+  let filteredAdoptedPets = pets.filter((pet) => 
        pet.isAdopted
     ); 
+    //pets.filter is not a function
    
-  
-    //  function handlePetAdopt(){
-    //     // const filteredAdopted = pets.filter((pet) => 
-    //     //      pet.isAdopted
-    //     //   ); 
-    //    setPets(filteredAdoptedPets);
-      
-    //   console.log(filteredAdoptedPets);
-    //  }
-     
 
     function handleSubmit(pet){ 
       fetch('http://localhost:3000/pets', {
@@ -101,8 +88,7 @@ function App() {
             // onAdopt={handlePetAdopt}
             onPetDelete = {handleDelete}
             handleSubmit = {handleSubmit}
-            // adoptedPets={adoptedPets} 
-            // setAdoptedPets={setAdoptedPets}
+            
             />
           </Route> 
           <Route path="/about">
@@ -112,7 +98,7 @@ function App() {
             <Adopted 
              filteredAdoptedPets = {filteredAdoptedPets} 
              setPets = {setPets}
-            //  setAdoptedPets={setAdoptedPets}
+           
            
             />
           </Route>

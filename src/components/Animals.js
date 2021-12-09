@@ -39,6 +39,18 @@ function Animals({pets, onPetDelete, handleSubmit, setPets}){
         setFilteredPets(pets)
       }
     }    
+    function handlePetAdopt(adoptedPet){
+        console.log(pets);
+        //create new arr of pets & swap old pet w updated
+        const adoptedPets = pets.map((petObj) => {
+            if(petObj.id === adoptedPet.id){
+                return adoptedPet
+            }else{
+                return petObj
+            }
+        })
+        setPets(adoptedPets);
+    }
 
   return (
 
@@ -55,7 +67,7 @@ function Animals({pets, onPetDelete, handleSubmit, setPets}){
         <Filter onPetChange={handlePetChange}/>           
 
         <ItemList
-       
+          onPetAdopt= {handlePetAdopt}
           pets={filteredPets}
         //   adoptedpets={pets}
           onPetDelete={onPetDelete} 
