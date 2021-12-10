@@ -57,17 +57,17 @@ function App() {
       setPets(updatedPets);
     } 
 
-    function handlePetReturn(adoptedPet){
-      console.log(pets);
+    function handlePetReturn(returnedPet){
+      // console.log(pets);
       //create new arr of pets & swap old pet w updated
-      const adoptedPets = pets.map((petObj) => {
-          if(petObj.id === adoptedPet.id){
-              return adoptedPet
+      const returnedPets = pets.map((petObj) => {
+          if(petObj.id === returnedPet.id){
+              return returnedPet
           }else{
               return petObj
           }
       })
-      setPets(adoptedPets);
+      setPets(returnedPets);
     }
 
     

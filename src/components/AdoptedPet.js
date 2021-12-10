@@ -1,6 +1,6 @@
 import React from "react";
 
-function AdoptedPet({pet, setPets, adoptedPet , onPetReturn}){
+function AdoptedPet({pet, onPetReturn}){
      const {image, name} = pet;
 
 

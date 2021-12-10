@@ -2,7 +2,7 @@ import React from "react";
 import AdoptedPet from "./AdoptedPet";
 
 
- function Adopted({pets, setPets, adoptedPet, onPetReturn}){
+ function Adopted({pets, onPetReturn}){
 
     // adoptedPets.map is not a function
 
@@ -11,8 +11,7 @@ import AdoptedPet from "./AdoptedPet";
         <AdoptedPet 
              pet={pet} 
              key={pet.id}  
-             setPets={setPets}
-             adoptedPet={adoptedPet}
+             
              onPetReturn={onPetReturn}
             
         />
