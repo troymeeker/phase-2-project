@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 
 
+
 function App() {
   document.title = "Save-A-Pet";
 
@@ -28,7 +29,7 @@ function App() {
     .then((petArr) => {
        setPets(petArr)
          let adoptedPetArr = petArr.filter((pet) => pet.isAdopted === true)
-        // setPets(adoptedPetArr)
+         setPets(adoptedPetArr)
       //  console.log(pets);
         })
   }
@@ -76,17 +77,18 @@ function App() {
       <div>
         <nav className="navbar">
             <h4>
-              <Link to="/">HOME</Link>
+              <Link to="/" className="nav-item">HOME</Link>
             </h4>
             <h4>
-              <Link to="/animals">ANIMALS</Link>
+              <Link to="/animals" className="nav-item">ANIMALS</Link>
             </h4>
             <h4>
-              <Link to="/about">ABOUT US</Link>
+              <Link to="/about" className="nav-item">ABOUT US</Link>
             </h4>
             <h4 >
-              <Link to="/adopted" >ADOPTED ANIMALS</Link>
+              <Link to="/adopted" className="nav-item" >ADOPTED ANIMALS</Link>
             </h4>
+           
           
         </nav>
 
@@ -106,6 +108,7 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
+        
           <Route path="/adopted" >
             <Adopted 
              pets = {filteredAdoptedPets} 
@@ -116,6 +119,8 @@ function App() {
            
             />
           </Route>
+
+
         </Switch>
       </div> 
       

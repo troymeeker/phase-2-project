@@ -14,16 +14,26 @@ body {
   text-align: center; 
   background-color:rgb(145, 142, 142);  
   padding: 11px;
+  height: 100vh;
 
 }
 .about-page{
   text-align: center;
   background-color:rgb(172, 168, 168);  
   padding: 11px;
+  height: 100vh;
+
 }
 .adopted-page{
   text-align: center;
     
+}
+.adopted-num{
+  text-align: center;
+  border: 1px solid black;
+  margin: 180px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .puppy-eyes{
@@ -42,7 +52,11 @@ body {
   font-family: sans-serif;
   display: flex;
   justify-content: space-around;
+  
 
+}
+.nav-item{
+  color: black;
 }
 
 .grid-item{
