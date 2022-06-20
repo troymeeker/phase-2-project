@@ -15,7 +15,7 @@ function Animals({pets, onPetDelete, handleSubmit, setPets}){
     if(pets !== undefined && pets.length !== 0){
         setFilteredPets(pets)
     } else{
-        fetch("http://localhost:3000/pets")
+        fetch("http://localhost:3001/pets")
         .then((resp) => resp.json())
         .then((petArr) => {
             

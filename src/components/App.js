@@ -11,8 +11,6 @@ import {
   Link
 } from "react-router-dom";
 
-
-
 function App() {
   document.title = "Save-A-Pet";
 
@@ -24,7 +22,7 @@ function App() {
   },[])
 
   function fetchPets(){
-    fetch('http://localhost:3000/pets')
+    fetch('http://localhost:3001/pets')
     .then((resp) => resp.json())
     .then((petArr) => {
        setPets(petArr)
@@ -40,7 +38,7 @@ function App() {
    
 
     function handleSubmit(pet){ 
-      fetch('http://localhost:3000/pets', {
+      fetch('http://localhost:3001/pets', {
           method: "POST", 
           headers: {
              "Content-Type": "application/json"

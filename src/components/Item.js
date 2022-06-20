@@ -26,7 +26,7 @@ function Item({pet, onPetDelete, onPetAdopt }){
 
     function handleAdopt(){
         setisAdopted((isAdopted) => !isAdopted)
-       fetch(`http://localhost:3000/pets/${id}`, { 
+       fetch(`http://localhost:3001/pets/${id}`, { 
             method: "PATCH",  
             headers: {
                 "Content-type": "application/json"
@@ -34,13 +34,14 @@ function Item({pet, onPetDelete, onPetAdopt }){
              body: JSON.stringify({isAdopted: true})
            })
        .then((resp) => resp.json())
-       .then((adoptedPet) => onPetAdopt(adoptedPet)
+       .then((adoptedPet) => 
+       setTimeout(onPetAdopt(adoptedPet), 100) 
         //    setisAdopted(data)
            
         )}
 
 function handleDelete(){
-          fetch(`http://localhost:3000/pets/${id}`, {
+          fetch(`http://localhost:3001/pets/${id}`, {
               method: "DELETE", 
           })
          onPetDelete(id)

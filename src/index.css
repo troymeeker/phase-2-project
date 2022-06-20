@@ -14,7 +14,7 @@ body {
   text-align: center; 
   background-color:rgb(145, 142, 142);  
   padding: 11px;
-  height: 100vh;
+  height: fit-content;
 
 }
 .about-page{
@@ -31,7 +31,7 @@ body {
 .adopted-num{
   text-align: center;
   border: 1px solid black;
-  margin: 180px;
+  margin: 100px;
   padding: 10px;
   border-radius: 10px;
 }

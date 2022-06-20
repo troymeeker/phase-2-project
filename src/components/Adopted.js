@@ -21,9 +21,10 @@ import AdoptedPet from "./AdoptedPet";
      return(
       <div>
           <h2 className="grid-header ">Adopted Pets:</h2>
-          {petCards}
-          <p className="adopted-num"> You've adopted {petCards.length} Pets</p>
-          
+             <p className="adopted-num"> You've adopted {petCards.length} Pets</p>
+             
+             {petCards}
+       
           
           
      </div>
