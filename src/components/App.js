@@ -113,8 +113,6 @@ function App() {
              setPets = {setPets}
              onPetReturn = {handlePetReturn}
 
-           
-           
             />
           </Route>
 

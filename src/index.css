@@ -15,7 +15,23 @@ body {
   background-color:rgb(145, 142, 142);  
   padding: 11px;
   height: fit-content;
+  width: 100vw;
+  
 
+}
+.adopt-pet{
+  text-align: center;
+  background-color: rgb(150, 154, 154);
+  height: fit-content;
+
+}
+.adopted{
+  text-align: center;
+  background-color: rgb(150, 154, 154);
+  padding: 20px;
+  
+min-height: 100vh;
+max-height: fit-content;
 }
 .about-page{
   text-align: center;
@@ -24,10 +40,7 @@ body {
   height: 100vh;
 
 }
-.adopted-page{
-  text-align: center;
-    
-}
+
 .adopted-num{
   text-align: center;
   border: 1px solid black;
@@ -58,14 +71,27 @@ body {
 .nav-item{
   color: black;
 }
+.grid-pet{
+  
+    border:2px solid rgb(85, 149, 145); 
+    border-radius: 3%;
+    background-color: rgb(139, 208, 209);
+    margin-bottom: 5px;
+    padding:4px;
+    width: 30%;
+    height:55%;
+    position: relative;
+    left: 35%;
 
-.grid-item{
+     
+   
+}
+.adopted-pet{
  border:2px solid rgb(3, 3, 12); 
  border-radius: 3%;
  background-color: rgb(139, 208, 209);
- margin-left:35%;
- margin-top:5px;
- padding:5px;
+ margin-bottom: 2px;
+ padding:4px;
  width: 30%;
  height:55%;
   
@@ -73,19 +99,50 @@ body {
 .grid-header{
   
 text-align: center;
+margin: 0px;
 
 }
 
 .grid-img{
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 55%;
   border-radius: 50%;
   text-align: center;
+  margin: 10px;
+  background-image: center;
   
 }
-.adopted{
-  background-color: rgb(112, 110, 110);
-  font-style: italic;
-  color: white;
-  
+.button{
+  border-radius: 10px;
+  padding:4px;
 }
+.option-container{
+  /* border: 1px solid black; */
+  height: fit-content;
+  width:fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin: auto;
+}
+ .select{
+   display: flex;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+   margin: 20px;
+   width: 90px;
+   border: 1px solid black;
+   border-radius: 3px;
+   background-color: black;
+   color:white;
+   font-weight: bold;
+   padding: 2px;
+   font-size: large;
+   
+   
+ }
+ .select:active{
+   color:grey;
+   height: fit-content;
+ }

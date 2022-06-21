@@ -5,6 +5,7 @@ import Filter from "./Filter";
 import Form from "./Form";
 
 
+
 function Animals({pets, onPetDelete, handleSubmit, setPets}){
    
   
@@ -23,22 +24,9 @@ function Animals({pets, onPetDelete, handleSubmit, setPets}){
         })
     }
    },[pets])
- 
-   //    const displayedPets = pets.filter((pet) => 
-   //        pet.name?.toLowerCase().includes(search.toLowerCase())
-   //    )
+  
 
-   function handlePetChange(e){ 
-   
-    if(e.target.value !== "All"){
-     const petsToFilter = pets.filter((pet) => pet.type === e.target.value.toLowerCase())
-     
-     setFilteredPets(petsToFilter);
-   
-     }  else {
-        setFilteredPets(pets)
-      }
-    }    
+    
     function handlePetAdopt(adoptedPet){
         // console.log(pets);
         // create new arr of pets & swap old pet w updated
@@ -64,7 +52,7 @@ function Animals({pets, onPetDelete, handleSubmit, setPets}){
 
         {/* <Search  search={search} onSearchChange={setSearch} /> */}
 
-        <Filter onPetChange={handlePetChange}/>           
+        <Filter  setPets={setPets} pets={pets}/>           
 
         <ItemList
           onPetAdopt= {handlePetAdopt}

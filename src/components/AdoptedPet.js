@@ -5,9 +5,10 @@ function AdoptedPet({pet, onPetReturn}){
 
 
     function handleReturnPet(){
-        alert("Are you sure you would like to return this pet?")
-       
-      
+        // prompt("Are you sure you would like to return this pet?")
+         alert("Are you sure you would like to return this pet?")
+        
+
         fetch(`http://localhost:3001/pets/${pet.id}`, { 
             method: "PATCH",  
             headers: {
@@ -26,7 +27,7 @@ function AdoptedPet({pet, onPetReturn}){
     }                
 
     return (
-        <div className="grid-item"> 
+        <div className="adopted-pet"> 
             <ul>
                 <h2>{name}</h2>
                 <img src={image} alt={name} className="grid-img"/>

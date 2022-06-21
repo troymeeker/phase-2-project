@@ -44,7 +44,7 @@ function Form({handleSubmit}){
                   <option value="Cat"> Cat</option>
                   <option value="Bird"> Bird</option>
                </select>
-               <button>Submit</button>
+               <button className="button">SUBMIT</button>
             </form>
       </div>
     )

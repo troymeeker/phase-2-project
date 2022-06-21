@@ -49,7 +49,7 @@ function handleDelete(){
       }
 
     return( 
-        <div className="grid-item ">
+        <div className="grid-pet ">
             <img src={image} alt={name} className="grid-img"/>
             <h4> {name} </h4>
             <button onClick={handleLike}>Like</button>
@@ -59,7 +59,7 @@ function handleDelete(){
             <button onClick={handleDonateFive}>Donate $5</button>
             <button onClick={handleDonateTen}>Donate $10</button><br/>
             { isAdopted ? (
-              <button className="adopted" >I've been Adopted!</button>
+              <button className="adopt-pet" >I've been Adopted!</button>
                )  : (
                 <button onClick={handleAdopt}>Adopt Me!</button>
                )}
