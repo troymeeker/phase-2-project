@@ -87,15 +87,24 @@ max-height: fit-content;
    
 }
 .adopted-pet{
- border:2px solid rgb(3, 3, 12); 
+ border:2px solid rgb(85, 149, 145); 
  border-radius: 3%;
  background-color: rgb(139, 208, 209);
- margin-bottom: 2px;
+ margin-bottom: 5px;
  padding:4px;
  width: 30%;
  height:55%;
+ position: relative;
+ left: 35%;
+
   
 }
+.top-link{
+  color:black;
+
+
+}
+
 .grid-header{
   
 text-align: center;

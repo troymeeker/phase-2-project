@@ -61,7 +61,7 @@ function Animals({pets, onPetDelete, handleSubmit, setPets}){
           onPetDelete={onPetDelete} 
         
          />
-      
+      <a href="#top" className="top-link">TOP OF PAGE</a>
 
     </div>) 
 }
